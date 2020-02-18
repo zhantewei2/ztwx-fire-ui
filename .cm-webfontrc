@@ -1,0 +1,7 @@
+{
+  "outputDir":"public/css",
+  "imgDir":"cm-webfont/resources",
+  "fontName":"cmNzx",
+  "fontClassName":"fa",
+  "formats":["woff","woff2"]
+}

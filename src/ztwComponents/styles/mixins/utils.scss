@@ -1,0 +1,102 @@
+.cmFire-base-font-family{
+  font-family:$base-family;
+}
+@mixin Base-family(){
+  @extend .cmFire-base-font-family;
+}
+@mixin Abs-full($display:block){
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  position:absolute;
+  display:$display;
+}
+@mixin Abs-center(){
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+@mixin Ztw-transition(){
+  transition:all $ztw-transition-line;
+}
+
+
+@mixin line-center(){
+  display:inline-flex;
+  align-items: center;
+}
+@mixin Inline-all-center(){
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+@mixin default-bg(){
+  background-color:$default-bg;
+}
+
+@mixin line-center(){
+  display:flex;
+  align-items: center;
+}
+@mixin pos-center($height){
+  line-height:$height;
+  height:$height;
+  text-align: center;
+}
+@mixin between-center(){
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin Base-input(){
+  outline:none;
+  border:none;
+  -webkit-appearance: none;
+  background-color:transparent;
+}
+
+@mixin Radius($radius:$base-radius){
+  @if $use-radius{
+    border-radius:$radius;
+  }
+}
+@mixin Block($v){
+  @if $v=="flex"{
+   display:flex; 
+  }
+  @else{
+    display:block;
+  }
+}
+@mixin Rel(){
+  position: relative;
+}
+@mixin Input-holder(){
+  &::-webkit-input-placeholder{
+    @content;
+  }
+}
+
+@mixin Flex-auto(){
+  flex:1;
+  flex-grow: 1;
+  flex-basis: 1;
+}
+@mixin Iflex-center(){
+  display:inline-flex;
+  justify-content: center;
+  align-items:center;
+}
+@mixin Margin-center(){
+  margin-left:auto;
+  margin-right:auto;
+}
+@import "media-var";
+@import "card";
+@import "autoFill";
+@import "autoMedia";

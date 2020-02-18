@@ -1,0 +1,19 @@
+$--ice-nav-w:17rem;
+$--ice-header-h:50px;
+$--ice-header-index:100;
+$--ice-nav-index:101;
+/**
+  header
+ */
+$--ice-header-bg:$fire-header-bg;
+$--ice-header-color:$fire-header-color;
+$--ice-avatar-len:25px;
+$--ice-header-wrapper-p:0 1rem;
+/**
+  nav
+ */
+$--ice-nav-bg:$fire-nav-bg;
+$--ice-nav-shadow:2px 0 12px -3px rgba(0,0,0,0.1);
+$--ice-nav-line-active-color:$color-primary;
+$--ice-nav-line-active-bg:$fire-nav-bg;
+$--ice-nav-line-offset:10px;

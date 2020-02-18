@@ -1,0 +1,43 @@
+%animate-abs-fade-baseState{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+
+}
+
+.animate-abs-fade-enter-active{
+    transition:all .4s ease-out;
+    @extend %animate-abs-fade-baseState;
+}
+.animate-abs-fade-leave-active{
+    transition:all .4s ease-out;
+    opacity:0;
+    @extend %animate-abs-fade-baseState;
+}
+
+
+
+.animate-abs-fade-enter{
+    opacity:0;
+    @extend %animate-abs-fade-baseState;
+}
+
+.animate-abs-fade-leave{
+    opacity:1;
+}
+
+.animate-abs-fade-leave{
+    @extend %animate-abs-fade-baseState;
+}
+
+.animate-fade-enter-active{
+    transition:all .3s ease-out;
+}
+.animate-fade-leave-active{
+    opacity:0;
+    transition:all .3s ease-out;
+}
+.animate-fade-enter{
+    opacity:0;
+}

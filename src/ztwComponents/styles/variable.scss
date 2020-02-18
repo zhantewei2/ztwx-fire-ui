@@ -1,0 +1,116 @@
+$shadow-color:rgb(45,25,80) !default;
+$base-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "MicrosoftYaHei", "WenQuanYi Micro Hei", sans-serif;
+
+$color-primary:#ED7861 !default;
+$color-secondary:#FFCE00 !default;
+$color-thirdly:#D37465 !default;
+$color-assist:#259b24 !default;
+/*
+*可更改主题变量
+*
+*/
+//浅背景相关
+$light-font-color:rgba(black,.75) !default;
+$light-line-color:rgb(248,248,248);
+$light-line-border:1px solid $light-line-color;
+$light-background-color:white;
+$light-thin-color:rgb(230,230,230);
+$light-line-font:darken($light-line-color,20%);
+$light-font-deep:darken($light-line-color,35%);
+$light-bg:rgb(248,248,248);
+
+//可深背景字体色
+$deep-font-color:white;
+$deep-icon-color:white;
+//深背景内浅色背景字色
+$deep-icon-light-color:rgba(black,.75);
+$deep-background-color:black;
+
+//默认浅背景色
+$default-bg:white;
+
+$use-radius:true;
+$base-radius:.5em;
+
+
+$z-index:(
+  fireHeader:100,
+  fireNav:102,
+  fireNavShade:101
+);
+$radius:(
+  badge:8px
+);
+
+$text-size:(
+  sm:12px,
+  small:14px,
+  now:16px,
+  large:18px
+);
+
+//shadow
+
+$shadow-light-nav-top:0 2px 12px -3px rgba($shadow-color,.4) !default;
+/*
+*
+*/
+/*
+* Media
+*/
+$media-small:1220px !default;
+$media-medium:1370px !default;
+$media-large:1700px !default;
+$media-x:1701px !default;
+
+$media-font-size:(
+    small:12px,
+    medium:12px,
+    large:13px,
+    x:14px
+) !default;
+
+
+// fire header 背景色
+$fire-header-bg: $color-primary !default;
+$fire-header-color:$deep-font-color !default;
+$fire-header-shadow:none !default;
+$fire-header-bottom:1px solid $light-thin-color !default;
+// fire nav 右侧导航栏背景色
+$fire-nav-bg:white !default;
+$fire-nav-color:$light-font-color !default;
+$cmFire-header-h:64px !default;
+$fire-nav-line-active-bg:$light-line-color;
+
+// fir container body
+$fire-article-bg:$light-line-color !default;
+$fire-container-body-bg:$default-bg;
+$fire-nav-width:16rem !default;
+$fire-bottom-holder-h:50px;
+$fire-container-body-padding:2rem;
+$fire-body-height-base:100vh;
+$fire-body-height:calc(100vh - #{$cmFire-header-h} - #{$fire-bottom-holder-h} );
+
+$fire-body-media-p:(
+  small:(p:1.5rem),
+  medium:(p:2rem),
+  large:(p:3rem),
+  x:(p:3rem 4rem)
+);
+
+$fire-nav-brand:(
+  p:.6em 1em,
+);
+$ztw-transition-line:.3s ease-out;
+
+//cm line
+$cm-line-border:$light-line-border !default;
+
+//cm card
+$card-radius:10px;
+$card-base-padding:1em;
+
+//badge
+$badge-size:(
+  small:.1em .2em
+)

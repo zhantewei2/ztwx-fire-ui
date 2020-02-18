@@ -1,0 +1,39 @@
+//外部暴露可用样式
+.ice-header-line{
+  @include line-center();
+  height:100%;
+}
+.ice-header-toggle-line{
+  @include line-center();
+  height:50%;
+}
+
+.ice-header-avatar{
+  width:$--ice-avatar-len;
+  height:$--ice-avatar-len;
+  margin:.2rem;
+  border-radius:50%;
+  @include Inline-all-center();
+  @include default-bg();
+  i{
+    color:black;
+    font-size:$--ice-avatar-len/5*3;
+  }
+}
+
+.ice-container-header{
+  height:$--ice-header-h;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  color:$--ice-header-color;
+  z-index:$--ice-header-index;
+  background:$--ice-header-bg;
+  .ice-container-header-wrapper{
+    @include between-center();
+    margin-left: $--ice-nav-w;
+    height:$--ice-header-h;
+    padding:$--ice-header-wrapper-p;
+  }
+}

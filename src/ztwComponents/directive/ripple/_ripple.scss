@@ -1,0 +1,44 @@
+@keyframes Ripple-Bubbling{
+  0%{transform:scale3d(.5,.5,.5);opacity:.1}
+  60%{transform:scale3d(5,5,5);opacity:.2}
+  100%{transform:scale3d(8,8,8);opacity:0}
+}
+$ripple-theme:(
+        deep:rgba(white,.2) white rgba(white,.1),
+        light:rgba(black,.1) rgba(black,.6) rgba(gray,.1)
+);
+
+.ripple-bubbling{
+  display:block;
+  position:absolute;
+  border-radius:50%;
+  width:1em;
+  height:1em;
+  animation:Ripple-Bubbling .4s linear;
+  animation-fill-mode:forwards;
+}
+.ripple-wrapper{
+  overflow:hidden;
+  z-index:1;
+  cursor:pointer;
+  user-select: none;
+  @include Abs-full();
+  background-color:transparent;
+  transition:background .5s ease;
+}
+@each $key,$value in $ripple-theme{
+  .ripple-wrapper-#{$key}{
+    $bgColor:nth($value,1);
+    $bubblingColor:nth($value,2);
+    $hoverColor:nth($value,3);
+    &:hover{
+      background-color:$hoverColor;
+    }
+    &.ripple-active{
+      background-color:$bgColor;
+    }
+    .ripple-bubbling{
+      background:$bubblingColor;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@function getMediaStr($size){
+    $str:map-get($media-various,$size);
+    @return "screen #{$str}";
+}
+
+@mixin AutoMedia($map){
+    @each $k,$v in $map{
+        $mediaStr:getMediaStr($k);
+        @media #{$mediaStr}{
+            @include AutoFill($v);
+        }
+    }
+}
+
+@mixin SmallMedia(){
+    $str:getMediaStr(small);
+    @media #{$str}{
+        @content;
+    }
+}

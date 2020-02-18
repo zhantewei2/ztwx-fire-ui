@@ -1,0 +1,5 @@
+@mixin Badge($color,$size){
+    @include Radius();
+    padding:map-get($badge-size,$size);
+    background-color:rgba($color,.4);
+}

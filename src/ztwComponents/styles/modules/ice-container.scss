@@ -1,0 +1,12 @@
+@import "ice-container-var";
+@import "ice-container-header";
+@import "ice-container-nav";
+.ice-container{
+
+}
+
+.ice-container-body{
+  margin-left:$--ice-nav-w;
+  margin-top:$--ice-header-h;
+  @include AutoMedia($fire-body-media-p);
+}

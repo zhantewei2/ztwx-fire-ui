@@ -1,0 +1,5 @@
+@mixin Card($padding:$card-base-padding){
+    border-radius:$card-radius;
+    @include Light-card-shadow();
+    padding:$padding;
+}

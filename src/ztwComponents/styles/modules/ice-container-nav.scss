@@ -1,0 +1,59 @@
+.ice-container-nav{
+  width:$--ice-nav-w;
+  z-index:$--ice-nav-index;
+  position:fixed;
+  height:100vh;
+  top:0;
+  left:0;
+  background:$--ice-nav-bg;
+  @if $--ice-nav-shadow{
+    box-shadow:$--ice-nav-shadow;
+  }
+  .content{
+
+  }
+  overflow-y:auto;
+  /**
+    导航块
+   */
+  .ice-nav-block{
+
+  }
+  /**
+  item 行 block
+   */
+  .ice-nav-item{
+    //item line
+    .ice-nav-item-line{
+      position:relative;
+      .arrow{
+        transition: .2s all ease-out;
+      }
+      &.open{
+        .arrow{
+            transform:rotate(90deg);
+        }
+      }
+      &.active{
+        color:$--ice-nav-line-active-color;
+        background:$--ice-nav-line-active-bg;
+      }
+    }
+    //item collapse
+    .ice-nav-item-nav{
+      padding-left:$--ice-nav-line-offset;
+    }
+  }
+}
+
+.ice-line{
+    padding:.5rem;
+    display:flex;
+    align-items:center;
+    position:relative;
+    justify-content: space-between;
+    &.active{
+        color:$--ice-nav-line-active-color;
+        background:$--ice-nav-line-active-bg;
+    }
+}

@@ -1,0 +1,15 @@
+$cm-line-height:2.5rem !default;
+$cm-line-padding:.5rem !default;
+
+.cm-line{
+  list-style: none;
+  position:relative;
+  padding:$cm-line-padding;
+  min-height:$cm-line-height;
+  @include line-center();
+  &.border{
+    &:not(:last-of-type){
+      border-bottom:$cm-line-border;
+    }
+  }
+}
