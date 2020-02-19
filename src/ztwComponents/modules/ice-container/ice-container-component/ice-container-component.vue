@@ -12,7 +12,7 @@
             <slot slot="right" name="header-right"></slot>
         </cmIce-header>
         <cmIce-nav :navData="data">
-
+            <slot name="nav-top"></slot>
         </cmIce-nav>
         <cmIce-body>
             <slot></slot>

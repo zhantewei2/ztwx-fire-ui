@@ -70,5 +70,14 @@
         @else if $key == "w"{
             width:$value;
         }
+        @else if $key=="minw"{
+            min-width:$value;
+        }
+        @else if $key=="minh"{
+            min-height:$value;
+        }
+        @else if $key=="h"{
+            height:$value;
+        }
     }
 }

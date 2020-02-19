@@ -5,15 +5,27 @@ $--ice-nav-index:101;
 /**
   header
  */
-$--ice-header-bg:$fire-header-bg;
-$--ice-header-color:$fire-header-color;
+$--ice-header-bg:$fire-header-bg !default;
+$--ice-header-color:$fire-header-color !default;
 $--ice-avatar-len:25px;
 $--ice-header-wrapper-p:0 1rem;
+
+$--ice-header-border:null !default;
+$--ice-header-shadow:null !default;
+
 /**
   nav
  */
 $--ice-nav-bg:$fire-nav-bg;
 $--ice-nav-shadow:2px 0 12px -3px rgba(0,0,0,0.1);
-$--ice-nav-line-active-color:$color-primary;
-$--ice-nav-line-active-bg:$fire-nav-bg;
-$--ice-nav-line-offset:10px;
+$--ice-nav-line-active-color:$color-primary !default;
+$--ice-nav-line-active-bg:$fire-nav-bg !default;
+$--ice-nav-line-offset:1rem;
+$--ice-nav-line-p:0 .5rem;
+$--ice-nav-line-h:2.5rem;
+//$--ice-nav-line-media:(
+//  small:(px:5px),
+//        medium:(px:7px),
+//        large:(px:10px),
+//        x:(px:)
+//)

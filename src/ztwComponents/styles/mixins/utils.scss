@@ -23,7 +23,11 @@
   transition:all $ztw-transition-line;
 }
 
-
+@mixin center(){
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 @mixin line-center(){
   display:inline-flex;
   align-items: center;

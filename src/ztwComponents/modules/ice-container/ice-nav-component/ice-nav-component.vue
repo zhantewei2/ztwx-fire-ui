@@ -7,7 +7,9 @@
 
 <template>
     <nav class="ice-container-nav">
-
+        <aside>
+            <slot></slot>
+        </aside>
         <aside class="content">
             <cmIce-nav-item :data="navData" :itemFn="itemClick"></cmIce-nav-item>
         </aside>

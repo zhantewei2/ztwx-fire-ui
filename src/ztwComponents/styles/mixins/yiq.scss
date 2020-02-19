@@ -1,0 +1,30 @@
+@function yiq-is-light(
+  $color,
+  $threshold: $--yiq-threshold
+) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  $yiq: (($red*299)+($green*587)+($blue*114))/1000;
+
+  @return if($yiq >= $threshold, true, false);
+}
+
+@function yiq-color(
+    $bg,
+    $light:$--yiq-light,
+    $dark:$--yiq-dark,
+    $threshold:$--yiq-threshold
+){
+  @return if(yiq-is-light($bg,$threshold),$dark,$light)
+}
+
+@mixin Yiq-color($bg,$light,$dark){
+  @if yiq-is-light($bg){
+    color:$dark;
+  }
+  @else{
+    color:$light;
+  }
+}

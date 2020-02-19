@@ -26,6 +26,7 @@
     //item line
     .ice-nav-item-line{
       position:relative;
+      @include between-center();
       .arrow{
         transition: .2s all ease-out;
       }
@@ -37,6 +38,7 @@
       &.active{
         color:$--ice-nav-line-active-color;
         background:$--ice-nav-line-active-bg;
+        border-right:5px solid rgba($--ice-nav-line-active-color,.5);
       }
     }
     //item collapse
@@ -52,8 +54,17 @@
     align-items:center;
     position:relative;
     justify-content: space-between;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
     &.active{
         color:$--ice-nav-line-active-color;
         background:$--ice-nav-line-active-bg;
     }
+}
+.ice-nav-item-line{
+  //@include AutoMedia($--ice-nav-line-media);
+  padding:$--ice-nav-line-p;
+  line-height:$--ice-nav-line-h;
+  height:$--ice-nav-line-h;
 }

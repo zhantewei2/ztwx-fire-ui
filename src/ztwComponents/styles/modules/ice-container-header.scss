@@ -27,7 +27,7 @@
   top:0;
   left:0;
   width:100%;
-  color:$--ice-header-color;
+  color:yiq-color($--ice-header-bg);
   z-index:$--ice-header-index;
   background:$--ice-header-bg;
   .ice-container-header-wrapper{
@@ -35,5 +35,11 @@
     margin-left: $--ice-nav-w;
     height:$--ice-header-h;
     padding:$--ice-header-wrapper-p;
+  }
+  @if $--ice-header-border{
+    border-bottom:$--ice-header-border;
+  }
+  @if $--ice-header-shadow{
+    box-shadow:$--ice-header-shadow;
   }
 }
