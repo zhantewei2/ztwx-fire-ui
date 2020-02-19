@@ -1,0 +1,15 @@
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+.flex{
+  display:flex;
+}
+.flex-center{
+  @include center();
+}
+.flex-between{
+  @include between-center();
+}

@@ -97,10 +97,10 @@ $fire-body-height-base:100vh;
 $fire-body-height:calc(100vh - #{$cmFire-header-h} - #{$fire-bottom-holder-h} );
 
 $fire-body-media-p:(
-  small:(p:1.5rem),
-  medium:(p:2rem),
-  large:(p:3rem),
-  x:(p:3rem 4rem)
+  small:(p:1rem 1.5rem),
+  medium:(p:1.5rem 2rem),
+  large:(p:2rem 3rem),
+  x:(p:2rem 4rem)
 );
 
 $fire-nav-brand:(
@@ -114,7 +114,14 @@ $cm-line-border:$light-line-border !default;
 //cm card
 $card-radius:10px;
 $card-base-padding:1em;
-
+$card-search-p:1.2rem 1.5rem 1.5rem 1rem;
+$card-content-p:1.5rem 1.5rem;
+$card-shadow-color:rgba($shadow-color,.1) !default;
+$card-border:1px solid rgba($shadow-color,.1) !default;
+$card-shadow:0 2px 16px -4px $card-shadow-color !default;
+$card-min-w:800px !default;
+$card-max-w:1400px !default;
+$card-auto-center:null !default;
 //badge
 $badge-size:(
   small:.1em .2em

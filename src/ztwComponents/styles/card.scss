@@ -1,0 +1,24 @@
+.cm-card{
+  @include Card();
+  border:$card-border;
+  box-shadow:$card-shadow;
+  //min-width:$card-min-w;
+  //max-width:$card-max-w;
+  @if $card-auto-center{
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+.cm-search-card{
+  @extend .cm-card;
+  padding:$card-search-p;
+  &+.cm-content-card{
+    margin-top:1rem;
+  }
+}
+
+.cm-content-card{
+  @extend .cm-card;
+  padding:$card-content-p;
+}
