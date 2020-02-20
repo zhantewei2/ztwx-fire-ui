@@ -18,11 +18,12 @@ $--ice-header-shadow:null !default;
  */
 $--ice-nav-bg:$fire-nav-bg;
 $--ice-nav-shadow:2px 0 12px -3px rgba(0,0,0,0.1);
+$--ice-nav-line-color:$light-font-color;
 $--ice-nav-line-active-color:$color-primary !default;
-$--ice-nav-line-active-bg:$fire-nav-bg !default;
+$--ice-nav-line-active-bg:null !default;
 $--ice-nav-line-offset:1rem;
-$--ice-nav-line-p:0 .5rem;
-$--ice-nav-line-h:2.5rem;
+$--ice-nav-line-p:.5rem;
+$--ice-nav-item-nav-bg:rgba($light-font-color,0.05) !default; //次级导航body背景色
 //$--ice-nav-line-media:(
 //  small:(px:5px),
 //        medium:(px:7px),

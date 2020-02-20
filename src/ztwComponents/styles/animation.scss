@@ -5,7 +5,14 @@
     width:100%;
 
 }
+@keyframes LightFadeIn {
+    from{opacity:0.5}
+    to{}
+}
 
+.light-fade-in{
+    animation:LightFadeIn .3s ease-out;
+}
 .animate-abs-fade-enter-active{
     transition:all .4s ease-out;
     @extend %animate-abs-fade-baseState;

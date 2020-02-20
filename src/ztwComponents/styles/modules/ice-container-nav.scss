@@ -24,8 +24,10 @@
    */
   .ice-nav-item{
     //item line
+    @extend .light-fade-in;
     .ice-nav-item-line{
       position:relative;
+      color:$--ice-nav-line-color;
       @include between-center();
       .arrow{
         transition: .2s all ease-out;
@@ -37,13 +39,20 @@
       }
       &.active{
         color:$--ice-nav-line-active-color;
-        background:$--ice-nav-line-active-bg;
+        @if $--ice-nav-line-active-bg{
+          background:$--ice-nav-line-active-bg;
+        }
         border-right:5px solid rgba($--ice-nav-line-active-color,.5);
       }
     }
     //item collapse
     .ice-nav-item-nav{
       padding-left:$--ice-nav-line-offset;
+      background-color:$--ice-nav-item-nav-bg;
+      border-left:5px solid $--ice-nav-line-active-color;
+      .ice-nav-item-nav{
+        border-left:none;
+      }
     }
   }
 }
@@ -65,6 +74,4 @@
 .ice-nav-item-line{
   //@include AutoMedia($--ice-nav-line-media);
   padding:$--ice-nav-line-p;
-  line-height:$--ice-nav-line-h;
-  height:$--ice-nav-line-h;
 }
