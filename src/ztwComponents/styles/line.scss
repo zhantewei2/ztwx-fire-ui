@@ -1,0 +1,15 @@
+.ice-line{
+  @include IceLine(true);
+  background-color:$cm-line-bg;
+  &.between{
+    @include between-center();
+    >i{
+      font-size:$cm-line-icon-size;
+      font-weight:bold;
+      @include text_color("brand",$cm-line-bg);
+      &+*{
+        @include text_color("title",$cm-line-bg);
+      }
+    }
+  }
+}

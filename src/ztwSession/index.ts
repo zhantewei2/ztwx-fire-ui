@@ -5,7 +5,7 @@ export class Session{
 
     private sessionKey:string="ztwx-fire-session-key";
 
-    private sessionValue:string;
+    private sessionValue:string|undefined;
     public setSessionKey(key:string){
         this.sessionKey=key;
     }
@@ -15,11 +15,18 @@ export class Session{
     }
 
     public isMemeroy=():Promise<string>=>{
-        return Promise.resolve(this.sessionValue);
+        return Promise.resolve(this.sessionValue||"");
     };
 
     public isStorage=():Promise<string>=>{
         return Promise.resolve(sessionStorage[this.sessionKey]);
+    };
+    /**
+     * 清除session
+     */
+    public clearSession=()=>{
+        this.sessionValue=undefined;
+        delete sessionStorage[this.sessionKey];
     }
 }
 

@@ -1,15 +1,36 @@
 .ice-container-nav{
   width:$--ice-nav-w;
-  z-index:$--ice-nav-index;
+  z-index:map-get($z-index,iceNav);
   position:fixed;
-  height:100vh;
+  bottom:0;
   top:0;
   left:0;
+  display:flex;
+  flex-direction:column;
+  @include use-transition();
   background:$--ice-nav-bg;
   @if $--ice-nav-shadow{
     box-shadow:$--ice-nav-shadow;
   }
   .content{
+    overflow-y:auto;
+    flex:1;
+    flex-shrink: 1;
+  }
+  .footer{
+    height:$--ice-nav-footer-h;
+    line-height:$--ice-nav-footer-h;
+    padding-left:$--base-padding*2;
+    padding-right:$--base-padding*2;
+    background:$--ice-nav-footer-bg;
+    display:none;
+    color:$light-font-color;
+    text-align:right;
+    position:relative;
+    i{
+      font-size:1.4rem;
+      vertical-align: middle;
+    }
 
   }
   overflow-y:auto;

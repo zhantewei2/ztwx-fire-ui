@@ -9,6 +9,15 @@
     from{opacity:0.5}
     to{}
 }
+@keyframes FadeIn {
+    from{opacity:0}
+    to{}
+}
+
+@keyframes PopFadeIn{
+    from {transform:scale(0,0)}
+    to{}
+}
 
 .light-fade-in{
     animation:LightFadeIn .3s ease-out;
@@ -47,4 +56,8 @@
 }
 .animate-fade-enter{
     opacity:0;
+}
+
+.an-fade-in{
+    @include use-animation(FadeIn);
 }

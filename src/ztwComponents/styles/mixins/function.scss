@@ -1,0 +1,3 @@
+@function lucency_text($color){
+  @return rgba($color,.8);
+}

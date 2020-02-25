@@ -1,0 +1,19 @@
+@mixin use-animation($animation_name,$type:normal){
+  @if $type=="normal"{
+    animation:$animation_name $ztw-transition-line;
+  }
+  @else if( $type=="fast" ){
+    animation:$animation_name $ztw-transition-fast;
+  }
+}
+@mixin use-transition($attr_name:all,$type:normal){
+  $type_str:none;
+  @if $type =="normal"{
+    $type_str:$ztw-transition-line;
+  }
+  @else if($type=="fast"){
+    $type_str:$ztw-transition-fast;
+  }
+
+  transition:$attr_name $type_str;
+}

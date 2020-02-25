@@ -1,0 +1,9 @@
+.text-color-des{
+  @include text_color("des");
+}
+.text-color-title{
+  @include text_color("title");
+}
+.text-color-brand{
+  @include text_color("brand");
+}

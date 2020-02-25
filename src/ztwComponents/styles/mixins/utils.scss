@@ -56,6 +56,11 @@
   align-items: center;
   justify-content: space-between;
 }
+@mixin inline-between-center(){
+   display:inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 @mixin Base-input(){
   outline:none;

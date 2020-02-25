@@ -1,0 +1,21 @@
+.ice-dropdown-main{
+  position:fixed;
+  z-index:map-get($z-index,iceDropdown);
+  &.bottom{
+    &>main{
+      transform-origin:50% 0;
+    }
+  }
+}
+.ice-dropdown-animate-enter{
+  transform:scale(.5,.5);
+  opacity:0;
+}
+.ice-dropdown-animate-enter-active{
+  @include use-transition($type:fast);
+}
+.ice-dropdown-animate-leave-active{
+  @include use-transition($type:fast);
+  transform:scale(.5,.5);
+  opacity:0;
+}

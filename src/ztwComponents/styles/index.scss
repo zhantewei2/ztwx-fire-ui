@@ -1,9 +1,12 @@
 @import "customTheme";
 @import "variable";
 @import "mixins/yiq";
+@import "mixins/function";
 @import "./mixins/media-var";
+@import "mixins/animation";
 @import "mixins/utils";
 @import "mixins/text";
+@import "mixins/line";
 @import "mixins/shadow";
 @import "mixins/badge";
 @import "mixins/autoFill";
@@ -15,3 +18,7 @@
 @import "../directive/ripple/ripple";
 @import "../components/TransitionHeight/TransitionHeight";
 @import "../components/cmLine/cmLine";
+@import "line";
+@import "avatar";
+@import "text";
+@import "loader";

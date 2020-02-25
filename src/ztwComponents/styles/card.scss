@@ -1,7 +1,6 @@
 .cm-card{
   @include Card();
-  border:$card-border;
-  box-shadow:$card-shadow;
+  @include CardSkin();
   //min-width:$card-min-w;
   //max-width:$card-max-w;
   @if $card-auto-center{

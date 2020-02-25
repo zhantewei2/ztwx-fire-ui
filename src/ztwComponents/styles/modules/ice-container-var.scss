@@ -1,7 +1,5 @@
 $--ice-nav-w:17rem;
-$--ice-header-h:50px;
-$--ice-header-index:100;
-$--ice-nav-index:101;
+$--ice-header-h:60px;
 /**
   header
  */
@@ -24,6 +22,10 @@ $--ice-nav-line-active-bg:null !default;
 $--ice-nav-line-offset:1rem;
 $--ice-nav-line-p:.5rem;
 $--ice-nav-item-nav-bg:rgba($light-font-color,0.05) !default; //次级导航body背景色
+$--ice-nav-footer-bg:$light-line-color !default;
+$--ice-nav-footer-hover:$light-thin-color !default;
+$--ice-nav-footer-h:3rem;
+$--ice-nav-header-btn-font:2rem;
 //$--ice-nav-line-media:(
 //  small:(px:5px),
 //        medium:(px:7px),

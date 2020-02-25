@@ -1,12 +1,22 @@
+@mixin text_color($various,$sourceColor:null){
+    @if $various =="brand"{
+        color:if($sourceColor,yiq-color($sourceColor,$deep-font-brand,$light-font-brand),$light-font-brand);
+    }
+    @else if($various == "des"){
+        color:if($sourceColor,yiq-color($sourceColor,$deep-font-des,$light-font-des),$light-font-des);
+    }
+    @else if($various == "title"){
+        color:if($sourceColor,yiq-color($sourceColor,$deep-font-title,$light-font-title),$light-font-title);
+    }
+}
 @mixin Text($various){
     @if $various == "brand" {
         font-size:$text-brand-size;
         margin-top:.4em;
         margin-bottom:.4em;
-        color:$light-font-deep;
     }
     @if $various == "des" {
         font-size:$text-des-size;
-        color:$light-line-font;
     }
+    @include text_color($various);
 }

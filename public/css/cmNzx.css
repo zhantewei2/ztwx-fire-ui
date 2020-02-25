@@ -4,7 +4,7 @@
   font-weight: 400;
   font-display: auto;
   
-  src: url("./cmNzx.woff2?name=1581889275063") format("woff2"), url("./cmNzx.woff?name=1581889275063") format("woff"); 
+  src: url("./cmNzx.woff2?name=1582589335856") format("woff2"), url("./cmNzx.woff?name=1582589335856") format("woff"); 
 }
 
 .fa {
@@ -101,7 +101,35 @@
 }
 
 
-.fa-right::before {
+.fa-changeKey::before {
   content: "\ea01";
+}
+
+.fa-collapse::before {
+  content: "\ea02";
+}
+
+.fa-exit::before {
+  content: "\ea03";
+}
+
+.fa-left-arrow::before {
+  content: "\ea04";
+}
+
+.fa-loader::before {
+  content: "\ea05";
+}
+
+.fa-menu::before {
+  content: "\ea06";
+}
+
+.fa-right::before {
+  content: "\ea07";
+}
+
+.fa-user::before {
+  content: "\ea08";
 }
 

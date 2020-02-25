@@ -19,6 +19,7 @@ module.exports = {
     "@typescript-eslint/type-annotation-spacing":"off",
     "@typescript-eslint/no-explicit-any":0,
     "@typescript-eslint/no-empty-function":0,
-    "@typescript-eslint/no-inferrable-types":0
+    "@typescript-eslint/no-inferrable-types":0,
+    "@typescript-eslint/no-this-alias":0
   }
 };

@@ -105,11 +105,12 @@ export class CreateTemplate extends TemplateManagePlugin{
     };
 
     /**生成文件
-     *
+     * 判断文件，如果存在，则不创建  2020/2/24
      * @param targetFilePath
      * @param fileContent
      */
     generateFile=(targetFilePath:string,fileContent:string)=>{
+        if(fs.existsSync(targetFilePath))return;
         fs.writeFileSync(
             targetFilePath,
             fileContent

@@ -2,7 +2,7 @@ $--yiq-threshold:180 !default;
 $--yiq-light:white !default;
 $--yiq-dark:rgb(black,0.75) !default;
 
-
+$--shadow-enabled:true !default;
 $shadow-color:rgb(45,25,80) !default;
 $base-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "MicrosoftYaHei", "WenQuanYi Micro Hei", sans-serif;
 
@@ -10,23 +10,33 @@ $color-primary:#ED7861 !default;
 $color-secondary:#FFCE00 !default;
 $color-thirdly:#D37465 !default;
 $color-assist:#259b24 !default;
+
+$color-cover-bg:rgba(black,.5) !default ; //cover背景色;
+/**
+* 基础设置
+*/
+$--base-padding:1rem !default;
 /*
 *可更改主题变量
 *
 */
 //浅背景相关
-$light-font-color:rgba(black,.65) !default;
+$light-font-color:rgba(black,.75) !default;
 $light-line-color:rgb(248,248,248);
 $light-line-border:1px solid $light-line-color;
 $light-background-color:white;
 $light-thin-color:rgb(230,230,230);
-$light-line-font:darken($light-line-color,20%);
-$light-font-deep:darken($light-line-color,35%);
+$light-font-des:lighten($light-font-color,45%) !default;
+$light-font-brand:lighten($light-font-color,5%) !default;
+$light-font-title:lighten($light-font-color,15%) !default;
 $light-bg:rgb(248,248,248);
 
 //可深背景字体色
 $deep-font-color:white;
 $deep-icon-color:white;
+$deep-font-des:darken($deep-font-color,45%) !default;
+$deep-font-brand:darken($deep-font-color,5%) !default;
+$deep-font-title:darken($deep-font-color,15%) !default;
 //深背景内浅色背景字色
 $deep-icon-light-color:rgba(black,.75);
 $deep-background-color:black;
@@ -41,7 +51,11 @@ $base-radius:.5em;
 $z-index:(
   fireHeader:100,
   fireNav:102,
-  fireNavShade:101
+  fireNavShade:101,
+        iceHeader:100,
+        iceNav:102,
+        iceNavShade:101,
+        iceDropdown:200
 );
 $radius:(
   badge:8px
@@ -57,6 +71,7 @@ $text-size:(
 //shadow
 
 $shadow-light-nav-top:0 2px 12px -3px rgba($shadow-color,.4) !default;
+$shadow-header:0 3px 14px -4px rgba($shadow-color,.4) !default;
 /*
 *
 */
@@ -68,6 +83,8 @@ $media-medium:1370px !default;
 $media-large:1700px !default;
 $media-x:1701px !default;
 
+$media-mobile:900px !default;
+$media-mobile-enabled:true !default; //开启手机模式
 $media-font-size:(
     small:12px,
     medium:12px,
@@ -107,10 +124,13 @@ $fire-nav-brand:(
   p:.6em 1em,
 );
 $ztw-transition-line:.3s ease-out;
-
+$ztw-transition-fast:.2s ease-out;
 //cm line
+$cm-line-bg:$default-bg;
 $cm-line-border:$light-line-border !default;
-
+$cm-line-padding:1rem 2rem !default;
+$cm-line-use-border:true !default;
+$cm-line-icon-size:1.5rem !default;
 //cm card
 $card-radius:10px;
 $card-base-padding:1em;
@@ -125,4 +145,12 @@ $card-auto-center:null !default;
 //badge
 $badge-size:(
   small:.1em .2em
+);
+
+//avatar
+$avatar-size:(
+  small:1.2rem,
+  medium:2rem,
+        large:2.5rem,
+        x:3rem
 )

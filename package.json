@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "compiler-manager": "tsc -d --outDir lib/ztwManager -m commonjs src/ztwManager/**.ts",
+    "compiler-manager": "tsc -d --outDir lib/ztwManager -m commonjs src/ztwManager/main.ts",
     "compiler-lib": "tsc -d --outFile src/ztwComponents/modules/modules.ts",
     "compiler-http": "tsc -d --project src/ztwHttp --outDir http",
     "compiler-session": "tsc -d --project src/ztwSession --outDir session",

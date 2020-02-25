@@ -29,7 +29,7 @@ export declare class CreateTemplate extends TemplateManagePlugin {
      */
     replaceTp: (replaceDict: Record<string, string>, tpContent: string) => string;
     /**生成文件
-     *
+     * 判断文件，如果存在，则不创建  2020/2/24
      * @param targetFilePath
      * @param fileContent
      */

@@ -1,0 +1,8 @@
+@mixin IceLine($border:true){
+    @if $border and $cm-line-use-border{
+      &:not(:last-of-type){
+        border-bottom:$cm-line-border;
+      }
+    }
+    padding:$cm-line-padding;
+}

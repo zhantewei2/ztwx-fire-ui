@@ -1,9 +1,68 @@
 @import "ice-container-var";
 @import "ice-container-header";
 @import "ice-container-nav";
-.ice-container{
 
+.ice-container{
+  .ice-cover{
+    display:none;
+    position:fixed;
+    z-index:map-get($z-index,iceNavShade);
+    background:$color-cover-bg;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    @include use-animation(FadeIn);
+  }
 }
+
+@if $media-mobile-enabled{
+  @media screen and (max-width:$media-mobile){
+    .ice-container{
+      .ice-container-nav{
+
+      }
+      .ice-container-header-wrapper{
+        margin-left:0;
+      }
+      .ice-container-body{
+        margin-left:0;
+      }
+      .ice-container-header-bulletin{
+        display:inline-flex;
+      }
+      .ice-cover{
+        display:block;
+      }
+    }
+  }
+}
+
+.ice-container{
+  //开启导航可折叠模式
+  &.trigger{
+    .ice-container-nav{
+      .footer{
+        display:block;
+      }
+    }
+  }
+  &.fold{
+    .ice-container-nav{
+      left:0 - $--ice-nav-w;
+    }
+    .ice-container-header-wrapper{
+      margin-left:0;
+    }
+    .ice-container-body{
+      margin-left:0;
+    }
+    .ice-container-header-bulletin{
+      display:inline-flex;
+    }
+  }
+}
+
 
 .ice-container-body{
   margin-left:$--ice-nav-w;
