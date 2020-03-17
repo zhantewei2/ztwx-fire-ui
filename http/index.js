@@ -12,9 +12,9 @@ export class Http {
             return params2;
         };
         this.xhr = (method, relativeUrl, params, params2) => {
-            return this.cacheHttp.xhr(method, this.hostUrl + relativeUrl.startsWith("/") ? relativeUrl : "/" + relativeUrl, params, this.appendTicketHeader(params2));
+            return this.cacheHttp.xhr(method, this.hostUrl + (relativeUrl.startsWith("/") ? relativeUrl : "/" + relativeUrl), params, this.appendTicketHeader(params2));
         };
-        this.cacheHttp = new CacheHttp({}, (params) => this.beforeFn(params), (params) => this.afterFn(params));
+        this.cacheHttp = new CacheHttp({}, (params) => this.beforeFn ? this.beforeFn(params) : params, (result, retryFn) => this.afterFn ? this.afterFn(result, retryFn) : Promise.resolve(result));
     }
     setBeforeHandler(fn) {
         this.beforeFn = fn;

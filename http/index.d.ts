@@ -6,13 +6,14 @@ export interface Params2 {
     expires?: number;
     key?: string;
 }
+export declare type FilterFn = (result: any, retryFn: any) => Promise<any>;
 export declare class Http {
     store: {
         [key: string]: string;
     };
     cacheHttp: any;
     beforeFn: any;
-    afterFn: any;
+    afterFn: FilterFn;
     hostUrl: string;
     ticketKey: string;
     ticketValue: string;
@@ -22,7 +23,7 @@ export declare class Http {
     setAfterHandler(fn: (params: {
         status: number;
         content: string;
-    }) => Promise<any>): void;
+    }, retryFn: any) => Promise<any>): void;
     setHost(host: string): void;
     setTicketKey(key: string): void;
     setTicketValue(v: string): void;

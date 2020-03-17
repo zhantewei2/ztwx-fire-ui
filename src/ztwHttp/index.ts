@@ -7,19 +7,19 @@ export interface Params2{
     key?:string;
 }
 
-
+export type FilterFn=(result:any,retryFn:any)=>Promise<any>;
 export class Http{
     store:{[key:string]:string}={};
     cacheHttp:any;
     beforeFn:any;
-    afterFn:any;
+    afterFn:FilterFn;
     hostUrl:string;
     ticketKey:string;
     ticketValue:string;
     constructor() {
         this.cacheHttp=new CacheHttp({},
-            (params:any)=>this.beforeFn(params),
-            (params:any)=>this.afterFn(params)
+            (params:any)=>this.beforeFn?this.beforeFn(params):params,
+            (result:any,retryFn:any)=>this.afterFn?this.afterFn(result,retryFn):Promise.resolve(result)
             );
     }
     appendTicketHeader=(params2:Params2={}):Params2=>{
@@ -36,7 +36,7 @@ export class Http{
         this.beforeFn=fn;
     };
 
-    setAfterHandler(fn:(params:{status:number,content:string})=>Promise<any>){
+    setAfterHandler(fn:(params:{status:number,content:string},retryFn:any)=>Promise<any>){
         this.afterFn=fn;
     }
     setHost(host:string){
@@ -57,7 +57,7 @@ export class Http{
     ):Observable<any>=>{
         return this.cacheHttp.xhr(
             method,
-            this.hostUrl+relativeUrl.startsWith("/")?relativeUrl:"/"+relativeUrl,
+            this.hostUrl+(relativeUrl.startsWith("/")?relativeUrl:"/"+relativeUrl),
             params,
             this.appendTicketHeader(params2)
         )
