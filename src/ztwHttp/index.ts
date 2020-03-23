@@ -2,7 +2,7 @@ import {Observable} from "rxjs";
 const {CacheHttp}=require("cache-ajax");
 
 export interface Params2{
-    header?:{[key:string]:any},
+    headers?:{[key:string]:any};
     expires?:number;
     key?:string;
 }
@@ -24,17 +24,18 @@ export class Http{
     }
     appendTicketHeader=(params2:Params2={}):Params2=>{
         if(this.ticketKey&&this.ticketValue) {
-            params2.header = params2.header ? {
-                ...params2.header,
+            params2.headers = params2.headers ? {
+                ...params2.headers,
                 [this.ticketKey]:this.ticketValue
             } : {[this.ticketKey]:this.ticketValue}
         }
+
         return params2;
     };
 
     setBeforeHandler(fn:(params:Record<any, any>)=>void){
         this.beforeFn=fn;
-    };
+    }
 
     setAfterHandler(fn:(params:{status:number,content:string},retryFn:any)=>Promise<any>){
         this.afterFn=fn;

@@ -1,23 +1,23 @@
-$media-various:(
-    small:"and (max-width:#{$media-small})",
-    medium:"and (min-width:#{$media-small + 1px }) and (max-width:#{$media-medium})",
-    large:"and (min-width:#{$media-medium + 1px}) and (max-width:#{$media-large})",
-    x:"and (min-width:#{$media-x})"
+$media-various: (
+        small:"and (max-width:#{$media-small})",
+        medium:"and (min-width:#{$media-small + 1px }) and (max-width:#{$media-medium})",
+        large:"and (min-width:#{$media-medium + 1px}) and (max-width:#{$media-large})",
+        x:"and (min-width:#{$media-x})"
 );
 
-$media-small-str:map-get($media-various,small);
+$media-small-str: map-get($media-various, small);
 
-$html-media:(
-  small:(
-    font:12px
-  ),
-  medium:(
-    font:12px
-  ),
-  large:(
-    font:13px
-  ),
-  x:(
-    font:14px
-  )
+$html-media: (
+        small:(
+                font:12px
+        ),
+        medium:(
+                font:12px
+        ),
+        large:(
+                font:13px
+        ),
+        x:(
+                font:14px
+        )
 ) !default;

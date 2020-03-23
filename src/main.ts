@@ -9,6 +9,7 @@ Vue.config.productionTip = false;
 Vue.use(FireContainerModule);
 Vue.use(IceContainerModule);
 
+
 new Vue({
   router,
   render: h => h(App),

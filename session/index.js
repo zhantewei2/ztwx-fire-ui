@@ -1,18 +1,28 @@
-export class Session {
-    constructor() {
+var Session = /** @class */ (function () {
+    function Session() {
+        var _this = this;
         this.sessionKey = "ztwx-fire-session-key";
-        this.isMemeroy = () => {
-            return Promise.resolve(this.sessionValue);
+        this.isMemeroy = function () {
+            return Promise.resolve(_this.sessionValue || "");
         };
-        this.isStorage = () => {
-            return Promise.resolve(sessionStorage[this.sessionKey]);
+        this.isStorage = function () {
+            return Promise.resolve(sessionStorage[_this.sessionKey]);
+        };
+        /**
+         * 清除session
+         */
+        this.clearSession = function () {
+            _this.sessionValue = undefined;
+            delete sessionStorage[_this.sessionKey];
         };
     }
-    setSessionKey(key) {
+    Session.prototype.setSessionKey = function (key) {
         this.sessionKey = key;
-    }
-    setSession(value) {
+    };
+    Session.prototype.setSession = function (value) {
         this.sessionValue = sessionStorage[this.sessionKey] = value;
-    }
-}
-export const session = new Session();
+    };
+    return Session;
+}());
+export { Session };
+export var session = new Session();

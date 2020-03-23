@@ -4,7 +4,7 @@
   font-weight: 400;
   font-display: auto;
   
-  src: url("./cmNzx.woff2?name=1582589335856") format("woff2"), url("./cmNzx.woff?name=1582589335856") format("woff"); 
+  src: url("./cmNzx.woff2?name=1584804293143") format("woff2"), url("./cmNzx.woff?name=1584804293143") format("woff"); 
 }
 
 .fa {
@@ -105,31 +105,43 @@
   content: "\ea01";
 }
 
-.fa-collapse::before {
+.fa-close::before {
   content: "\ea02";
 }
 
-.fa-exit::before {
+.fa-collapse::before {
   content: "\ea03";
 }
 
-.fa-left-arrow::before {
+.fa-exit::before {
   content: "\ea04";
 }
 
-.fa-loader::before {
+.fa-left-arrow::before {
   content: "\ea05";
 }
 
-.fa-menu::before {
+.fa-loader::before {
   content: "\ea06";
 }
 
-.fa-right::before {
+.fa-menu::before {
   content: "\ea07";
 }
 
-.fa-user::before {
+.fa-right::before {
   content: "\ea08";
+}
+
+.fa-search::before {
+  content: "\ea09";
+}
+
+.fa-uploadMax::before {
+  content: "\ea0a";
+}
+
+.fa-user::before {
+  content: "\ea0b";
 }
 

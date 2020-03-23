@@ -5,6 +5,9 @@ const join=(...args)=>
 const current_env=process.env.NODE_ENV;
 module.exports={
     productionSourceMap:false,
+    pages:{
+
+    },
     chainWebpack:config=>{
         //环境配置
         console.log("current_env:",current_env);

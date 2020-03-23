@@ -1,83 +1,62 @@
-@mixin AutoFill($map){
-    @each $key,$value in $map{
-        @if $key == "m"{
-            margin:$value;
-        }
-        @else if $key=="font"{
-            font-size:$value;
-        }
-        @else if $key == "p"{
-            padding:$value;
-        }
-        @else if $key == "hidden"{
-            display:none;
-        }
-        @else if $key == "display"{
-            display:$value;
-        }
-        @else if $key == "mx"{
-            margin-left:$value;
-            margin-right:$value;
-        }
-        @else if $key == "px"{
-            padding-left:$value;
-            padding-right:$value;
-        }
-        @else if $key == "mb"{
-            margin-bottom:$value;
-        }
-        @else if $key == "my"{
-            margin-top:$value;
-            margin-bottom:$value;
-        }
-        @else if $key == "pl"{
-            padding-left:$value;
-        }
-        @else if $key == "pr"{
-            padding-right:$value;
-        }
-        @else if $key == "py"{
-            padding-top:$value;
-            padding-bottom:$value;
-        }
-        @else if $key == "bg"{
-            background:$value;
-        }
-        @else if $key == "color"{
-            color:$value;
-        }
-        @else if $key == "border"{
-            @if $value == "none"{
-                border:none
-            }
-            @else{
-                border:1px solid $value;
-            }
-        }
-        @else if $key == "centerH"{
-            height:$value;
-            line-height: $value;
-        }
-
-        @else if $key == "overHid"{
-            @if $value {
-                overflow:hidden
-            }
-        }
-        @else if $key == "radius"{
-            @include Radius($value);
-        }
-        @else if $key == "w"{
-            width:$value;
-        }
-        @else if $key=="minw"{
-            min-width:$value;
-        }
-        @else if $key=="minh"{
-            min-height:$value;
-        }
-        @else if $key=="h"{
-            height:$value;
-        }
+@mixin AutoFill($map) {
+  @each $key, $value in $map {
+    @if $key == "m" {
+      margin: $value;
+    } @else if $key=="font" {
+      font-size: $value;
+    } @else if $key == "p" {
+      padding: $value;
+    } @else if $key == "hidden" {
+      display: none;
+    } @else if $key == "display" {
+      display: $value;
+    } @else if $key == "mx" {
+      margin-left: $value;
+      margin-right: $value;
+    } @else if $key == "px" {
+      padding-left: $value;
+      padding-right: $value;
+    } @else if $key == "mb" {
+      margin-bottom: $value;
+    } @else if $key == "my" {
+      margin-top: $value;
+      margin-bottom: $value;
+    } @else if $key == "pl" {
+      padding-left: $value;
+    } @else if $key == "pr" {
+      padding-right: $value;
+    } @else if $key == "py" {
+      padding-top: $value;
+      padding-bottom: $value;
+    } @else if $key == "bg" {
+      background: $value;
+    } @else if $key == "color" {
+      color: $value;
+    } @else if $key == "border" {
+      @if $value == "none" {
+        border: none
+      } @else {
+        border: 1px solid $value;
+      }
+    } @else if $key == "centerH" {
+      height: $value;
+      line-height: $value;
+    } @else if $key == "overHid" {
+      @if $value {
+        overflow: hidden
+      }
+    } @else if $key == "radius" {
+      @include Radius($value);
+    } @else if $key == "w" {
+      width: $value;
+    } @else if $key=="minw" {
+      min-width: $value;
+    } @else if $key=="minh" {
+      min-height: $value;
+    } @else if $key=="h" {
+      height: $value;
+    } @else if ($key==bold and $value) {
+      font-weight: bold;
     }
+  }
 }

@@ -1,0 +1,9 @@
+@mixin LucencyBG($color) {
+  $color: rgba($color, .8);
+  background: rgba($color, .1);
+
+  color: $color;
+  i {
+    color: $color;
+  }
+}

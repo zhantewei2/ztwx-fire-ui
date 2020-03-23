@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 export interface Params2 {
-    header?: {
+    headers?: {
         [key: string]: any;
     };
     expires?: number;

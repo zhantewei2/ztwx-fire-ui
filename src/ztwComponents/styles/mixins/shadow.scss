@@ -1,23 +1,31 @@
-@mixin Light-nav-shadow(){
-   box-shadow:0 2px 10px -5px rgba($shadow-color,.4);
+@mixin Light-nav-shadow() {
+  box-shadow: 0 2px 10px -5px rgba($shadow-color, .4);
 }
-@mixin Light-navTop-shadow(){
-   box-shadow:$shadow-light-nav-top;
-}
-@mixin Light-bottom-shadow(){
-   box-shadow: 0 4px 6px -2px rgba($shadow-color,0.1);
-};
 
-@mixin Light-card-shadow(){
-   box-shadow:1px 1px 5px -3px rgba($shadow-color, 0.2);
+@mixin Light-navTop-shadow() {
+  box-shadow: $shadow-light-nav-top;
 }
-@mixin Deep-card-shadow(){
-   box-shadow: 2px 4px 12px -2px rgba($shadow-color,0.2), 1px 2px 4px rgba($shadow-color,.2);
+
+@mixin Light-bottom-shadow() {
+  box-shadow: 0 4px 6px -2px rgba($shadow-color, 0.1);
 }
-@mixin Shadow($various){
-   @if $--shadow-enabled{
-      @if $various=="header"{
-         box-shadow:$shadow-header;
-      }
-   }
+
+;
+
+@mixin Light-card-shadow() {
+  box-shadow: 1px 1px 5px -3px rgba($shadow-color, 0.2);
+}
+
+@mixin Deep-card-shadow() {
+  box-shadow: 2px 4px 12px -2px rgba($shadow-color, 0.2), 1px 2px 4px rgba($shadow-color, .2);
+}
+
+@mixin Shadow($various) {
+  @if $--shadow-enabled {
+    @if $various=="header" {
+      box-shadow: $shadow-header;
+    } @else if $various == "modal" {
+      @include Deep-card-shadow();
+    }
+  }
 }

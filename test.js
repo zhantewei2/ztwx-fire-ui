@@ -1,6 +1,2 @@
-const subprocess=require("child_process");
-
-const d=new Date();
-
-const r=subprocess.execSync("git config user.name");
-console.log(r.toString())
+const bb = [1, 2, 3, 4];
+console.log(bb.includes(12))
