@@ -66,6 +66,8 @@
 
 .ice-container-body{
   margin-left:$--ice-nav-w;
-  margin-top:$--ice-header-h;
   @include AutoMedia($fire-body-media-p);
+}
+.ice-body-header{
+  height:$--ice-header-h;
 }

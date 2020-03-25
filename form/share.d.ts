@@ -1,6 +1,6 @@
 import { Subject } from "./Subject";
 export declare type ValidatorErrMessage = ((value: any) => string) | string;
-export declare type ValueType = string | number | undefined;
+export declare type ValueType = string | number | undefined | boolean;
 export interface Validator {
     apply: (value: ValueType) => boolean;
     name: string;

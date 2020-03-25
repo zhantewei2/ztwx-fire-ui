@@ -1,2 +1,5 @@
-const bb = [1, 2, 3, 4];
-console.log(bb.includes(12))
+const arr=[6,1,2,3,4,5];
+
+
+console.log(arr.sort((a,b)=>a-b));
+console.log(arr)

@@ -8,14 +8,16 @@
 
 @mixin Light-bottom-shadow() {
   box-shadow: 0 4px 6px -2px rgba($shadow-color, 0.1);
-}
-
-;
+};
 
 @mixin Light-card-shadow() {
   box-shadow: 1px 1px 5px -3px rgba($shadow-color, 0.2);
 }
 
+@mixin Card-shadow(){
+  box-shadow: 0 6px 16px -6px rgba($color-primary,.1),
+    0 19px 28px -16px rgba($color-primary,.1);
+}
 @mixin Deep-card-shadow() {
   box-shadow: 2px 4px 12px -2px rgba($shadow-color, 0.2), 1px 2px 4px rgba($shadow-color, .2);
 }
@@ -26,6 +28,8 @@
       box-shadow: $shadow-header;
     } @else if $various == "modal" {
       @include Deep-card-shadow();
+    }@else if $various == "card"{
+      @include Card-shadow();
     }
   }
 }

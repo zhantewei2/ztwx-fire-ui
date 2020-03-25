@@ -1,4 +1,6 @@
 import { __assign } from "tslib";
+import { Subject, throwError } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
 var CacheHttp = require("cache-ajax").CacheHttp;
 var Http = /** @class */ (function () {
     function Http() {
@@ -12,8 +14,24 @@ var Http = /** @class */ (function () {
             }
             return params2;
         };
+        this.httpSendBeforeHook = new Subject();
+        this.httpReceiveHook = new Subject();
+        this.httpReceiveErrorHook = new Subject();
         this.xhr = function (method, relativeUrl, params, params2) {
-            return _this.cacheHttp.xhr(method, _this.hostUrl + (relativeUrl.startsWith("/") ? relativeUrl : "/" + relativeUrl), params, _this.appendTicketHeader(params2));
+            var url = _this.hostUrl + (relativeUrl.startsWith("/") ? relativeUrl : "/" + relativeUrl);
+            _this.httpSendBeforeHook.next({
+                url: url,
+                relativeUrl: relativeUrl,
+                method: method,
+                params: params,
+                params2: params2
+            });
+            return _this.cacheHttp.xhr(method, url, params, _this.appendTicketHeader(params2)).pipe(catchError(function (err) {
+                _this.httpReceiveErrorHook.next(err);
+                return throwError(err);
+            }), tap(function (result) {
+                _this.httpReceiveHook.next(result);
+            }));
         };
         this.cacheHttp = new CacheHttp({}, function (params) { return _this.beforeFn ? _this.beforeFn(params) : params; }, function (result, retryFn) { return _this.afterFn ? _this.afterFn(result, retryFn) : Promise.resolve(result); });
     }

@@ -16,3 +16,12 @@
 .rel{
   position:relative;
 }
+
+.ice-cover-bg{
+  @include Abs-full();
+  background:$color-cover-light;
+  z-index:1;
+}
+.cover-blur{
+  filter:blur(2px);
+}

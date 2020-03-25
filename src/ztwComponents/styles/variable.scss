@@ -13,6 +13,7 @@ $color-assist: #259b24 !default;
 $color-error: red !default;
 
 $color-cover-bg: rgba(black, .5) !default; //cover背景色;
+$color-cover-light:rgba(black,.1) !default;
 /**
 * 基础设置
 */
@@ -137,6 +138,9 @@ $card-shadow: 0 2px 16px -4px $card-shadow-color !default;
 $card-min-w: 800px !default;
 $card-max-w: 1400px !default;
 $card-auto-center: null !default;
+$card-search-title-font-size:1.3rem;
+$card-search-title-p:0rem 1rem 1rem 1rem;
+$card-search-title-m:0 0 0.8rem 0;
 //badge
 $badge-size: (
         small:.1em .2em

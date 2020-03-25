@@ -1,4 +1,6 @@
-import {Observable} from "rxjs";
+import {Observable, Subject,throwError} from "rxjs";
+import {catchError, tap} from "rxjs/operators";
+
 const {CacheHttp}=require("cache-ajax");
 
 export interface Params2{
@@ -6,6 +8,20 @@ export interface Params2{
     expires?:number;
     key?:string;
 }
+
+export interface ValueChangePostParams{
+    method:string;
+    relativeUrl:string;
+    url:string;
+    params?:any;
+    params2?:Params2;
+}
+
+export interface ValueChangeResultParams{
+    status:number;
+    content:string;
+}
+
 
 export type FilterFn=(result:any,retryFn:any)=>Promise<any>;
 export class Http{
@@ -49,6 +65,9 @@ export class Http{
     setTicketValue(v:string){
         this.ticketValue=v;
     }
+    httpSendBeforeHook:Subject<ValueChangePostParams>=new Subject<ValueChangePostParams>();
+    httpReceiveHook:Subject<ValueChangeResultParams>=new Subject<ValueChangeResultParams>();
+    httpReceiveErrorHook:Subject<any>=new Subject<any>();
 
     xhr=(
         method:string,
@@ -56,11 +75,29 @@ export class Http{
         params?:Record<any,any>,
         params2?:Params2
     ):Observable<any>=>{
+        const url=this.hostUrl+(relativeUrl.startsWith("/")?relativeUrl:"/"+relativeUrl);
+
+        this.httpSendBeforeHook.next({
+            url,
+            relativeUrl,
+            method,
+            params,
+            params2
+        });
+
         return this.cacheHttp.xhr(
             method,
-            this.hostUrl+(relativeUrl.startsWith("/")?relativeUrl:"/"+relativeUrl),
+            url,
             params,
             this.appendTicketHeader(params2)
+        ).pipe(
+            catchError((err:any)=>{
+                this.httpReceiveErrorHook.next(err);
+                return throwError(err)
+            }),
+            tap((result:ValueChangeResultParams)=>{
+                this.httpReceiveHook.next(result);
+            })
         )
     }
 }

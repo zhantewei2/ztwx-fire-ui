@@ -2,7 +2,7 @@ import {Subject} from "./Subject";
 
 export type ValidatorErrMessage = ((value: any) => string) | string;
 
-export type ValueType = string | number | undefined;
+export type ValueType = string | number | undefined |boolean;
 
 export interface Validator {
     apply: (value: ValueType) => boolean;

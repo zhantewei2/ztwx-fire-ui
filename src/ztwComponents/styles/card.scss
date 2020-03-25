@@ -15,6 +15,14 @@
   &+.cm-content-card{
     margin-top:1rem;
   }
+  .title{
+    @include text_color(brand);
+    font-size:$card-search-title-font-size;
+    padding:$card-search-title-p;
+    margin:$card-search-title-m;
+    border-bottom:$light-line-border;
+    font-weight: bold;
+  }
 }
 
 .cm-content-card{
