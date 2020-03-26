@@ -91,11 +91,6 @@ export class Form {
     }
 
     toSerializer(): Record<string, any> {
-        // const result: any = {};
-        // for (let id in this.controllerDict) {
-        //     result[id] = this.controllerDict[id].value;
-        // }
-        // return result;
         return this.value;
     }
 

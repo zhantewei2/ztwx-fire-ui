@@ -7,13 +7,14 @@ import rangeValidator from "./validators/range.validator";
 import rangeLengthValidator from "./validators/rangeLength.validator";
 import requiredValidator from "./validators/required.validator";
 import {
-    Form,
     Controller,
     Validator,
     ValueType,
     Subject,
     SubjectOrder
 } from "./validators";
+
+import {FormUpdateVersion as Form} from "./FormUpdate";
 
 export {
     emailValidator,

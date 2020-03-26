@@ -6,5 +6,6 @@ import minLengthValidator from "./validators/min.validator";
 import rangeValidator from "./validators/range.validator";
 import rangeLengthValidator from "./validators/rangeLength.validator";
 import requiredValidator from "./validators/required.validator";
-import { Form, Subject } from "./validators";
+import { Subject } from "./validators";
+import { FormUpdateVersion as Form } from "./FormUpdate";
 export { emailValidator, maxLengthValidator, maxValidator, minLengthValidator, minValidator, rangeLengthValidator, rangeValidator, requiredValidator, Form, Subject };

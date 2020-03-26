@@ -1,2 +1,2 @@
-const s = new Map();
-console.log(JSON.parse("\"\""));
+
+console.log(undefined===null)

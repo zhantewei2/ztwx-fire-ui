@@ -77,11 +77,6 @@ var Form = /** @class */ (function () {
         });
     };
     Form.prototype.toSerializer = function () {
-        // const result: any = {};
-        // for (let id in this.controllerDict) {
-        //     result[id] = this.controllerDict[id].value;
-        // }
-        // return result;
         return this.value;
     };
     Object.defineProperty(Form.prototype, "isPass", {
