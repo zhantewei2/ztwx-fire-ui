@@ -77,29 +77,27 @@ var Cache = /** @class */ (function () {
         this.cacheDestroyDict.deleteKey(key);
     };
     Cache.prototype.matchedDestroyFnFactory = function (matchedList) {
-        var fnc;
-        var oldFn = function (url) {
+        var fn = function (url) {
             return false;
         };
         matchedList.forEach(function (i) {
+            var oldFn = fn;
             if (i instanceof RegExp) {
-                fnc = function (url) {
+                fn = function (url) {
                     if (oldFn(url))
                         return true;
                     return i.test(url);
                 };
-                oldFn = fnc;
             }
             else {
-                fnc = function (url) {
+                fn = function (url) {
                     if (oldFn(url))
                         return true;
                     return i === url;
                 };
-                oldFn = fnc;
             }
         });
-        return fnc || oldFn;
+        return fn;
     };
     return Cache;
 }());

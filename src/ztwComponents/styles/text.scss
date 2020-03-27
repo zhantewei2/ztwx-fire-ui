@@ -10,3 +10,16 @@
 .bg-light-assist{
   background:rgba($color-assist,.1) !important;
 }
+
+@each $key,$value in $color-various{
+  .bg-color-#{$key} {
+    background: $value;
+  }
+  .text-color-#{$key}{
+    color:$value;
+  }
+  .bg-lucency-#{$key}{
+    @include LucencyBG($value);
+  }
+
+}

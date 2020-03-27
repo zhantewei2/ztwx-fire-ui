@@ -1,4 +1,4 @@
-import {Subject} from "./Subject";
+import {Subject, SubjectOrder} from "./Subject";
 
 export type ValidatorErrMessage = ((value: any) => string) | string;
 
@@ -19,4 +19,9 @@ export interface Controller {
     valueChange?: Subject<Controller>;
     reset?: () => void;
     _value?: ValueType;
+    _changed?:boolean;
+    changed?:boolean;  //值是否改变
+    valueChangeSubjectOrder?:SubjectOrder<any>;
+    changeObservable?:()=>Subject<Controller>;
+    _changeObservable?:Subject<Controller>;
 }

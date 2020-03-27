@@ -14,7 +14,7 @@ export class Subject<T> {
         })
     }
 
-    subscribe(cb: (value: T) => void) {
+    subscribe(cb: (value: T) => void):SubjectOrder<T> {
         const id = ++this.id;
         const order: SubjectOrder<T> = {
             id,
@@ -22,6 +22,7 @@ export class Subject<T> {
             unsubscribe: () => this.unsubscribe(id)
         };
         this.orderList.push(order);
+        return order;
     }
 
     unsubscribe(itemId: number) {

@@ -1,2 +1,13 @@
+function c(){
+    console.log(this);
+}
 
-console.log(undefined===null)
+class A{
+    constructor() {
+        c.call(this);
+    }
+}
+
+
+
+console.log(new A());

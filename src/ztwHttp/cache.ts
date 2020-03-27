@@ -94,25 +94,24 @@ export class Cache {
 
 
     matchedDestroyFnFactory(matchedList: Array<string | RegExp>): (url: string) => boolean {
-        let fnc: any;
-        let oldFn = (url: string): boolean => {
+        let fn = (url: string): boolean => {
             return false
         };
+
         matchedList.forEach(i => {
+            const oldFn=fn;
             if (i instanceof RegExp) {
-                fnc = (url: string) => {
+                fn = (url: string) => {
                     if (oldFn(url)) return true;
                     return i.test(url);
                 };
-                oldFn = fnc;
             } else {
-                fnc = (url: string) => {
+                fn = (url: string) => {
                     if (oldFn(url)) return true;
                     return i === url;
                 };
-                oldFn = fnc;
             }
         });
-        return fnc || oldFn;
+        return fn;
     }
 }

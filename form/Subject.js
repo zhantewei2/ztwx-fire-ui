@@ -19,6 +19,7 @@ var Subject = /** @class */function () {
             }
         };
         this.orderList.push(order);
+        return order;
     };
     Subject.prototype.unsubscribe = function (itemId) {
         var itemIndex = this.orderList.findIndex(function (i) {

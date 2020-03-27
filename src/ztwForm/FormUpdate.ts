@@ -1,6 +1,7 @@
 import {Form} from "./validators";
 import {Controller} from "./share";
-
+import {filterUpdate} from "./filterUpdate";
+import {ControllerUpdate} from "./ControllerUpdate";
 /**
  * 相同为 true,不同为false
  * 忽略为 undefined;
@@ -8,13 +9,20 @@ import {Controller} from "./share";
 export type CheckMiddleFn=(key:string,originalValue:any,changedValue:any)=>boolean|undefined;
 
 export class FormUpdateVersion extends Form{
+    controllerUpdate:ControllerUpdate;
     constructor(
          controllers: Controller[]
     ) {
         super(controllers);
+        this.controllerUpdate=new ControllerUpdate(this);
+        this.controllerUpdate.defineControllersUpdate();
     }
-    originalValue:Record<string, any>={};
 
+    originalValue:Record<string, any>={};
+    clearChange(){
+        this._isChanged=false;
+        this.controllerUpdate.clearChange();
+    }
     /**
      * 设置待更新的原始数据
      * @param originalValue
@@ -23,7 +31,7 @@ export class FormUpdateVersion extends Form{
         originalValue:Record<string, any>,
     ){
         this.originalValue={};
-        this._isChanged=false;
+        this.clearChange();
         Object.keys(this.value).forEach((key:string)=>{
             this.value[key]=this.originalValue[key]=originalValue[key];
         })
@@ -32,18 +40,17 @@ export class FormUpdateVersion extends Form{
     updateOriginValue(
         updateValue:Record<string, any>
     ){
-        this._isChanged=false;
         Object.keys(updateValue).forEach(key=>{
             this.value[key]=this.originalValue[key]=updateValue[key];
-        })
+        });
+        if(!this.getUpdatedValue())this.clearChange();
     }
-
 
     resetOriginValue(){
         Object.keys(this.originalValue).forEach((key:string)=>{
             this.value[key]=this.originalValue[key];
         });
-        this._isChanged=false;
+        this.clearChange();
     }
     /**
      * 获取发生更改的值
@@ -55,8 +62,9 @@ export class FormUpdateVersion extends Form{
         Object.keys(this.originalValue).forEach(key=>{
             originValue=this.originalValue[key];
             currentValue=this.value[key];
-            if(currentValue==="")currentValue=undefined;
-            if(originValue==="")originValue=undefined;
+
+            ([originValue,currentValue]=filterUpdate(originValue,currentValue));
+
             if(this.checkMiddleFn){
                 checkResult=this.checkMiddleFn(key,originValue,currentValue);
                 if(checkResult!==undefined){
@@ -70,7 +78,7 @@ export class FormUpdateVersion extends Form{
         });
         return Object.keys(updatedValue).length>0?updatedValue:undefined;
     }
-    checkMiddleFn:CheckMiddleFn;
+    checkMiddleFn?:CheckMiddleFn;
 
     setCheckMiddleware(checkFn:CheckMiddleFn){
         this.checkMiddleFn=checkFn;
@@ -78,6 +86,7 @@ export class FormUpdateVersion extends Form{
 
     changeOrderExists:boolean=false;
     _isChanged:boolean=false;
+
     get isChanged():boolean{
         if(!this.changeOrderExists){
             this.valueChange.subscribe(()=>{
@@ -87,8 +96,5 @@ export class FormUpdateVersion extends Form{
             return !!this.getUpdatedValue();
         }
         return this._isChanged;
-    }
-    noChange(){
-        this._isChanged=false;
     }
 }

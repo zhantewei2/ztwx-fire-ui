@@ -1,13 +1,16 @@
 import { Form } from "./validators";
 import { Controller } from "./share";
+import { ControllerUpdate } from "./ControllerUpdate";
 /**
  * 相同为 true,不同为false
  * 忽略为 undefined;
  */
 export declare type CheckMiddleFn = (key: string, originalValue: any, changedValue: any) => boolean | undefined;
 export declare class FormUpdateVersion extends Form {
+    controllerUpdate: ControllerUpdate;
     constructor(controllers: Controller[]);
     originalValue: Record<string, any>;
+    clearChange(): void;
     /**
      * 设置待更新的原始数据
      * @param originalValue
@@ -19,10 +22,9 @@ export declare class FormUpdateVersion extends Form {
      * 获取发生更改的值
      */
     getUpdatedValue(): undefined | Record<string, any>;
-    checkMiddleFn: CheckMiddleFn;
+    checkMiddleFn?: CheckMiddleFn;
     setCheckMiddleware(checkFn: CheckMiddleFn): void;
     changeOrderExists: boolean;
     _isChanged: boolean;
     get isChanged(): boolean;
-    noChange(): void;
 }

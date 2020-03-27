@@ -10,7 +10,17 @@ $color-primary: #ED7861 !default;
 $color-secondary: #FFCE00 !default;
 $color-thirdly: #D37465 !default;
 $color-assist: #259b24 !default;
+$color-warn:yellow !default;
 $color-error: red !default;
+$color-success: green !default;
+
+$color-various:(
+        primary:$color-primary,
+        assist:$color-assist,
+        warn:$color-warn,
+        success:$color-success,
+        error:$color-error
+);
 
 $color-cover-bg: rgba(black, .5) !default; //cover背景色;
 $color-cover-light:rgba(black,.1) !default;

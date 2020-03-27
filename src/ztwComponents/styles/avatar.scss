@@ -1,14 +1,15 @@
 .ice-avatar{
   @include Iflex-center();
   border-radius:50%;
-
+  overflow: hidden;
   @each $k,$v in $avatar-size{
     &.#{$k}{
-      width:$v*1.5;
-      height:$v*1.5;
+      width:$v*1.8;
+      height:$v*1.8;
       i{
         font-size:$v;
       }
     }
   }
 }
+
