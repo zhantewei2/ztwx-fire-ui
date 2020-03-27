@@ -10,6 +10,9 @@ var Cache = /** @class */ (function () {
     Cache.prototype.cacheXhr = function (_a) {
         var _this = this;
         var method = _a.method, expires = _a.expires, relativeUrl = _a.relativeUrl, params = _a.params, params2 = _a.params2, destroyOnXhr = _a.destroyOnXhr;
+        if (!expires) {
+            return this.http.xhr(method, relativeUrl, params, params2);
+        }
         var key = method + '-' + relativeUrl + '-' + JSON.stringify(params);
         var existsCacheDestroyDict = this.cacheDestroyDict.getValue(key);
         if (existsCacheDestroyDict) {
@@ -21,7 +24,7 @@ var Cache = /** @class */ (function () {
             }
             else {
                 var resultValue = existsCacheDestroyDict.cacheValue;
-                if (resultValue != this.cacheExpireTag)
+                if (resultValue !== undefined && resultValue != this.cacheExpireTag)
                     return of(resultValue);
             }
         }
@@ -54,16 +57,14 @@ var Cache = /** @class */ (function () {
         var self = this;
         Object.defineProperty(cacheDestroy, "cacheValue", {
             get: function () {
-                if (expires && new Date().getTime() > setTime) {
+                if (new Date().getTime() > setTime) {
                     self.removeCacheDestroy(cacheDestroy.key);
                     return self.cacheExpireTag;
                 }
                 return JSON.parse(_cacheValue);
             },
             set: function (v) {
-                if (expires) {
-                    setTime = new Date().getTime() + expires;
-                }
+                setTime = new Date().getTime() + expires;
                 _cacheValue = JSON.stringify(v);
             }
         });

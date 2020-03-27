@@ -72,3 +72,58 @@
     transform:translate3d(-100%,0,0);
     @include use-transition($type:fast);
 }
+
+.animate-slide-down-enter{
+    transform: translate3d(0,-100%,0);
+}
+.animate-slide-down-enter-active{
+    @include use-transition($type:fast);
+}
+.animate-slide-down-leave-active{
+    transform: translate3d(0,100%,0);
+    @include use-transition($type:fast);
+}
+
+.animate-slide-right-enter{
+    transform: translate3d(-100%,0,0);
+}
+.animate-slide-right-enter-active{
+    @include use-transition($type:fast);
+}
+.animate-slide-right-leave-active{
+    transform: translate3d(100%,0,0);
+    @include use-transition($type:fast);
+}
+
+.animate-slide-left-enter{
+    transform: translate3d(100%,0,0);
+}
+.animate-slide-left-enter-active{
+    @include use-transition($type:fast);
+}
+.animate-slide-left-leave-active{
+    transform: translate3d(-100%,0,0);
+    @include use-transition($type:fast);
+}
+
+.animate-slide-toggle-right-enter{
+    transform: translate3d(100%,0,0);
+}
+.animate-slide-toggle-right-enter-active{
+    @include use-transition($type:fast);
+}
+.animate-slide-toggle-right-leave-active{
+    transform: translate3d(100%,0,0);
+    @include use-transition($type:fast);
+}
+
+.animate-slide-toggle-left-enter{
+    transform: translate3d(-100%,0,0);
+}
+.animate-slide-toggle-left-enter-active{
+    @include use-transition($type:fast);
+}
+.animate-slide-toggle-left-leave-active{
+    transform: translate3d(-100%,0,0);
+    @include use-transition($type:fast);
+}

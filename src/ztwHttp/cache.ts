@@ -22,6 +22,9 @@ export class Cache {
                  params2,
                  destroyOnXhr
              }: HttpCacheXhr): Observable<any> {
+        if(!expires){
+            return this.http.xhr(method,relativeUrl,params,params2);
+        }
         const key = method + '-' + relativeUrl + '-' + JSON.stringify(params);
         const existsCacheDestroyDict: CacheDestroyXhrObject = this.cacheDestroyDict.getValue(key);
 
@@ -33,7 +36,7 @@ export class Cache {
                 return existsCacheDestroyDict.xhrLoad;
             } else {
                 const resultValue = existsCacheDestroyDict.cacheValue;
-                if (resultValue != this.cacheExpireTag) return of(resultValue);
+                if (resultValue!==undefined&&resultValue != this.cacheExpireTag) return of(resultValue);
             }
         }
 
@@ -63,22 +66,20 @@ export class Cache {
         )
     }
 
-    cacheExpiredJsonForCacheValue(cacheDestroy: CacheDestroyXhrObject, expires: number | undefined) {
+    cacheExpiredJsonForCacheValue(cacheDestroy: CacheDestroyXhrObject, expires: number) {
         let _cacheValue = "";
         let setTime: number = 0;
         const self: Cache = this;
         Object.defineProperty(cacheDestroy, "cacheValue", {
             get() {
-                if (expires && new Date().getTime() > setTime) {
+                if (new Date().getTime() > setTime) {
                     self.removeCacheDestroy(cacheDestroy.key);
                     return self.cacheExpireTag;
                 }
                 return JSON.parse(_cacheValue);
             },
             set(v: any) {
-                if (expires) {
-                    setTime = new Date().getTime() + expires;
-                }
+                setTime = new Date().getTime() + expires;               
                 _cacheValue = JSON.stringify(v);
             }
         });
