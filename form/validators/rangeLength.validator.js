@@ -1,4 +1,4 @@
-var default_1 = /** @class */ (function () {
+var default_1 = /** @class */function () {
     function default_1(errMessage, minLength, maxLength) {
         this.name = "rangeLength";
         this.errMessage = errMessage;
@@ -6,8 +6,8 @@ var default_1 = /** @class */ (function () {
         this.maxLength = maxLength;
     }
     default_1.prototype.apply = function (value) {
-        return !value || (typeof (value) == "string" && (value.length <= this.maxLength) && (value.length >= this.minLength));
+        return !value || typeof value == "string" && value.length <= this.maxLength && value.length >= this.minLength;
     };
     return default_1;
-}());
+}();
 export default default_1;

@@ -10,7 +10,7 @@
     "compiler-lib": "tsc -d --outFile src/ztwComponents/modules/modules.ts",
     "compiler-http": "tsc -d --project src/ztwHttp --outDir http",
     "compiler-session": "tsc -d --project src/ztwSession --outDir session",
-    "compiler-form": "tsc -d --project src/ztwForm --outDir form",
+    "compiler-form": "tsc -d --project src/ztwForm --outDir form && babel form --out-dir form --config-file babel-browser.config.js",
     "compiler-utils": "tsc -d --project src/ztwUtils --outDir utils",
     "watch-src": "node lib/ztwManager/templates-manage/watch-cli.js src",
     "webfont": "cmWebfont start",

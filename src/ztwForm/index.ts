@@ -6,6 +6,7 @@ import minLengthValidator from "./validators/min.validator";
 import rangeValidator from "./validators/range.validator";
 import rangeLengthValidator from "./validators/rangeLength.validator";
 import requiredValidator from "./validators/required.validator";
+import regExpValidator from "./validators/regExp.validator";
 import {
     Form,
     Controller,
@@ -29,5 +30,6 @@ export {
     Validator,
     ValueType,
     Subject,
-    SubjectOrder
+    SubjectOrder,
+    regExpValidator
 }

@@ -1,4 +1,4 @@
-var Subject = /** @class */ (function () {
+var Subject = /** @class */function () {
     function Subject() {
         this.id = 0;
         this.orderList = [];
@@ -14,15 +14,18 @@ var Subject = /** @class */ (function () {
         var order = {
             id: id,
             cb: cb,
-            unsubscribe: function () { return _this.unsubscribe(id); }
+            unsubscribe: function () {
+                return _this.unsubscribe(id);
+            }
         };
         this.orderList.push(order);
     };
     Subject.prototype.unsubscribe = function (itemId) {
-        var itemIndex = this.orderList.findIndex(function (i) { return i.id === itemId; });
-        if (itemIndex >= 0)
-            this.orderList.splice(itemIndex, 1);
+        var itemIndex = this.orderList.findIndex(function (i) {
+            return i.id === itemId;
+        });
+        if (itemIndex >= 0) this.orderList.splice(itemIndex, 1);
     };
     return Subject;
-}());
+}();
 export { Subject };

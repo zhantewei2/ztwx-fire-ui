@@ -1,14 +1,13 @@
 import { Subject } from "./Subject";
 export { Subject };
-var Form = /** @class */ (function () {
+var Form = /** @class */function () {
     function Form(controllers) {
         var _this = this;
         this.controllerChangeSubject = new Subject();
         this.valueChange = new Subject();
         this.controllerDict = {};
         this.value = {};
-        if (!controllers || !controllers.length)
-            return;
+        if (!controllers || !controllers.length) return;
         this.controllers = controllers;
         this.controllers.forEach(function (controller) {
             _this.handleController(controller);
@@ -42,8 +41,7 @@ var Form = /** @class */ (function () {
             },
             set: function (v) {
                 this._value = v;
-                if (!controller.validator)
-                    return;
+                if (!controller.validator) return;
                 controller.errors = [];
                 self.handleControllerValidators(controller);
                 this.valueChange.next(controller);
@@ -59,17 +57,17 @@ var Form = /** @class */ (function () {
     Form.prototype.handleControllerValidators = function (controller) {
         var _this = this;
         if (controller.validator instanceof Array) {
-            controller.validator.forEach(function (validator) { return _this.handleControllerValidator(controller, validator); });
-        }
-        else {
+            controller.validator.forEach(function (validator) {
+                return _this.handleControllerValidator(controller, validator);
+            });
+        } else {
             this.handleControllerValidator(controller, controller.validator);
         }
     };
     Form.prototype.handleControllerValidator = function (controller, validator) {
         var isPass = validator.apply(controller.value);
-        if (isPass || !controller.errors)
-            return;
-        controller.errors.push(typeof (validator.errMessage) == "string" ? validator.errMessage : validator.errMessage(controller.value));
+        if (isPass || !controller.errors) return;
+        controller.errors.push(typeof validator.errMessage == "string" ? validator.errMessage : validator.errMessage(controller.value));
     };
     Form.prototype.reset = function () {
         this.controllers.forEach(function (controller) {
@@ -88,8 +86,7 @@ var Form = /** @class */ (function () {
         get: function () {
             for (var _i = 0, _a = this.controllers; _i < _a.length; _i++) {
                 var controller = _a[_i];
-                if (controller.errors && controller.errors.length)
-                    return false;
+                if (controller.errors && controller.errors.length) return false;
             }
             return true;
         },
@@ -107,5 +104,5 @@ var Form = /** @class */ (function () {
         return this.isPass;
     };
     return Form;
-}());
+}();
 export { Form };

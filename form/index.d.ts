@@ -6,5 +6,6 @@ import minLengthValidator from "./validators/min.validator";
 import rangeValidator from "./validators/range.validator";
 import rangeLengthValidator from "./validators/rangeLength.validator";
 import requiredValidator from "./validators/required.validator";
+import regExpValidator from "./validators/regExp.validator";
 import { Form, Controller, Validator, ValueType, Subject, SubjectOrder } from "./validators";
-export { emailValidator, maxLengthValidator, maxValidator, minLengthValidator, minValidator, rangeLengthValidator, rangeValidator, requiredValidator, Form, Controller, Validator, ValueType, Subject, SubjectOrder };
+export { emailValidator, maxLengthValidator, maxValidator, minLengthValidator, minValidator, rangeLengthValidator, rangeValidator, requiredValidator, Form, Controller, Validator, ValueType, Subject, SubjectOrder, regExpValidator };
