@@ -21,5 +21,9 @@
   .bg-lucency-#{$key}{
     @include LucencyBG($value);
   }
-
+}
+.ice-title{
+  @extend .text-color-title;
+  font-size:$text-title-size;
+  padding:$text-title-p;
 }

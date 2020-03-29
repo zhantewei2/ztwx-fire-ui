@@ -20,7 +20,7 @@ $--ice-nav-line-color:$light-font-color;
 $--ice-nav-line-active-color:$color-primary !default;
 $--ice-nav-line-active-bg:null !default;
 $--ice-nav-line-offset:1rem;
-$--ice-nav-line-p:.5rem;
+$--ice-nav-line-p:.5rem !default;
 $--ice-nav-item-nav-bg:rgba($light-font-color,0.05) !default; //次级导航body背景色
 $--ice-nav-footer-bg:$light-line-color !default;
 $--ice-nav-footer-hover:$light-thin-color !default;
