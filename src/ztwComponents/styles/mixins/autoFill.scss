@@ -18,7 +18,9 @@
       padding-right: $value;
     } @else if $key == "mb" {
       margin-bottom: $value;
-    } @else if $key == "my" {
+    }@else if $key == 'mt'{
+      margin-top:$value;
+    }@else if $key == "my" {
       margin-top: $value;
       margin-bottom: $value;
     } @else if $key == "pl" {
