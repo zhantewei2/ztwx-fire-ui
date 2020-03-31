@@ -13,8 +13,6 @@ module.exports={
         console.log("current_env:",current_env);
         // config.resolve.alias
         //     .set("@config",join("src/envs/config.dev.ts"));
-        config.resolve.alias
-            .set("@vue",join("globalVue.ts"));
 
     }
 };

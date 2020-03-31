@@ -7,24 +7,26 @@ const MiniCssExtractPlugin=require("mini-css-extract-plugin");
 
 const WORKSPACE_PATH=__dirname;
 const DIST_PATH=path.join(process.cwd(),"lib/package");
+const DIST_DTS_PATH=path.join(process.cwd(),"lib/packageTypes");
+
+const VueDtsPlugin =require("../../vue-dts/vue-dts.plugin");
 
 process.env.NODE_ENV="production";
 const webpackConfigBase={
     mode:"production",
     entry:path.join(WORKSPACE_PATH,"index.ts"),
+    performance:{
+        hints:false
+    },
     output:{
         filename:"[name].js",
         path:DIST_PATH,
         publicPath:"/",
-        libraryTarget:"umd",
+        libraryTarget:"amd"
     },
-    devtool:"eval-source-map",
+    devtool:false,
     externals:{
-        vue:{
-            commonjs:"vue",
-            amd:"vue",
-            commonjs2:"vue"
-        },
+        vue:"root Vue",
         "vue-property-decorator":{
             commonjs2:"vue-property-decorator",
             commonjs:"vue-property-decorator",
@@ -108,10 +110,16 @@ const webpackConfigBase={
         extensions:[".ts",".tsx",".js"]
     },
     optimization:{
-        usedExports:true
+        usedExports:true,
+        // minimize:false
     },
     plugins:[
         new VueLoaderPlugin(),
+        // new VueDtsPlugin({
+        //     inputFile:path.join(WORKSPACE_PATH,"index.ts"),
+        //     inputDir:WORKSPACE_PATH,
+        //     outputDir:DIST_DTS_PATH
+        // }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "index.css"

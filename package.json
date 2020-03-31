@@ -14,19 +14,22 @@
     "compiler-utils": "tsc -d --project src/ztwUtils --outDir utils",
     "watch-src": "node lib/ztwManager/templates-manage/watch-cli.js src",
     "webfont": "cmWebfont start",
-    "build:lib": "vue-cli-service build --target lib --name index --dest lib/package2 --inline-vue false src/ztwComponents/index.ts",
+    "build:lib": "vue-cli-service build --target lib --name index --dest lib/package2 src/ztwComponents/index.ts",
+    "myBuild:lib-type": "tsc src/ztwComponents/index.ts --outDir lib/packageTypes --noResolve --declaration",
     "myBuild:lib": "webpack --config src/ztwComponents/ztwx.webpack.js"
   },
-  "typings": "lib/packageTypes/index.d.ts",
+  "types": "lib/packageTypes/index.d.ts",
   "files": [
     "lib",
     "src"
   ],
-  "main": "lib/package/index.umd.js",
+  "main": "lib/package/main.js",
   "dependencies": {
     "@ztwx/webfont": "^0.0.1-alpha",
     "cache-ajax": "^3.0.1",
     "core-js": "^3.6.4",
+    "rmdir": "^1.2.0",
+    "rmdir-sync": "^1.0.1",
     "rxjs": "^6.5.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
@@ -51,6 +54,7 @@
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.7.5",
+    "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
     "webpack-cli": "^3.3.11"
   }
