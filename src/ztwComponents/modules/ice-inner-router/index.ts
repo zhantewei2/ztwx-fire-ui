@@ -3,6 +3,7 @@ import View from "./view";
 export {IceInnerRouterPlugin} from "./innerRouterPlugin";
 import {IceInnerRouterConfig,IceRouterPlugin} from "./interface";
 import {iceCacheKeepAlive} from "./viewCache";
+import Vue from "vue";
 
 export class IceRouterPluginManager{
     plugins:IceRouterPlugin[]=[];
