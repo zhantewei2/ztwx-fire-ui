@@ -26,7 +26,7 @@ const webpackConfigBase={
     },
     devtool:false,
     externals:{
-        vue:"root Vue",
+        vue:"vue",
         "vue-property-decorator":{
             commonjs2:"vue-property-decorator",
             commonjs:"vue-property-decorator",

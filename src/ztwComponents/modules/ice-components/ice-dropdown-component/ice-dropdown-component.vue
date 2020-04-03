@@ -21,7 +21,9 @@ import {Component,Prop} from "vue-property-decorator";
 import IceDropdownMain from "../ice-dropdown-main-component/ice-dropdown-main-component.vue";
 import {OutClick} from "../../lib-fire/OutClick";
 import {RelativeFixed} from "../../lib-fire/RelativeFixed";
-@Component({})
+@Component({
+    name:"ice-dropdown"
+})
 export default class extends Vue{
     @Prop({default:"hover"})triggerType:"hover"|"click";
     @Prop({default:"bottom"})position:"top"|"left"|"bottom"|"right";

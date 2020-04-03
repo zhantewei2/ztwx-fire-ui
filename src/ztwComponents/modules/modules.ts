@@ -1,4 +1,3 @@
-import {keepOneVue} from "./oneVue";
 import CmLine from "../components/cmLine/cmLine.component.vue";
 import {RippleDirection} from "../directive/ripple/ripple.directive";
 
@@ -19,8 +18,8 @@ export {
 
 
 export const FireContainerModule:any={
+  key:"fire-container",
   install:function(v:any){
-      keepOneVue(v);
       v.directive("cm-ripple",RippleDirection);
       v.component("cmFire-line",CmLine);
   }
