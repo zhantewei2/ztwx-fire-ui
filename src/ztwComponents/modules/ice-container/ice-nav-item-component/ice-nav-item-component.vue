@@ -8,8 +8,8 @@
 <template>
     <main class="ice-nav-block">
         <article class="ice-nav-item"
-            v-for="(i,index) in data"
-            :key="index"
+            v-for="(i) in data"
+            :key="i.label"
         >
             <div
                 class="ice-nav-item-line"
@@ -20,7 +20,7 @@
                 @click="itemFn(i)"
                 v-cm-ripple
             >
-                <label>{{i.label}}</label>
+                <label>{{i.label}} </label>
                 <span v-if="i.children&&i.children.length">
                     <i class="fa fa-right arrow"></i>
                 </span>

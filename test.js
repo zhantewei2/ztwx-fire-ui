@@ -1,13 +1,5 @@
-function c(){
-    console.log(this);
-}
-
-class A{
-    constructor() {
-        c.call(this);
-    }
-}
+const fs=require("fs");
+const path=require("path");
 
 
-
-console.log(new A());
+clear(/\.js$/,path.join(__dirname,"src/ztwComponents"));

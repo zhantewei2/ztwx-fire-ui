@@ -7,6 +7,12 @@
 
 <template>
     <header class="ice-container-header">
+        <main class="ice-container-header-bulletin">
+            <div @click="toFold" v-cm-ripple="{deep:true}" class="ice-container-header-btn">
+                <i class="fa fa-menu"></i>
+            </div>
+            <slot name="bulletin"></slot>
+        </main>
         <main class="ice-container-header-wrapper">
             <aside>
                 <slot name="left"></slot>
@@ -23,11 +29,14 @@ import Vue from "vue";
 import {Component} from "vue-property-decorator";
 
 @Component({
-    name:"cmIce-header"
+    name:"ice-container-header"
 })
 export default class extends Vue{
     constructor() {
         super();
+    }
+    toFold(){
+        this.$emit("fold");
     }
 }
 </script>

@@ -8,9 +8,16 @@
 </template>
 
 <script lang="ts">
-import {Vue,Component,Prop} from "vue-property-decorator";
-@Component({})
+import {Prop,Component} from "vue-property-decorator";
+import Vue from "vue";
+
+(window as any).testVue=Vue;
+
+@Component({
+  name:"cm-fire-line"
+})
 export default class extends Vue{
   @Prop({default:true})border!:boolean;
+  mounted(){}
 }
 </script>
