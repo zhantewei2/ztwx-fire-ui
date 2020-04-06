@@ -1,19 +1,19 @@
-import {keepOneVue} from "../oneVue";
 import View from "./view";
-export {IceInnerRouterPlugin} from "./innerRouterPlugin";
+
 import {IceInnerRouterConfig,IceRouterPlugin} from "./interface";
 import {iceCacheKeepAlive} from "./viewCache";
+export {IceInnerRouterPlugin} from "./innerRouterPlugin";
 
 export class IceRouterPluginManager{
     plugins:IceRouterPlugin[]=[];
     store={};
-    Vue:Vue;
+    Vue:any;
     registry(plugin:IceRouterPlugin){
         this.plugins.push(plugin);
         plugin.defineVuePrototype(this.Vue);
         plugin.registryPlugin(this.store);
     }
-    constructor(Vue:Vue) {
+    constructor(Vue:any) {
         this.Vue=Vue;
         (Vue as any).prototype.$iceRouteStore=this.store;
     }
@@ -29,7 +29,6 @@ export class IceRouterPluginManager{
 export const IceInnerRouterModule=(plugins:IceRouterPlugin[]
 )=>({
     install(Vue:any){
-        keepOneVue(Vue);
         if((this as any).installed)return;
         (this as any).installed=true;
         const iceRouterPluginManager=new IceRouterPluginManager(Vue);

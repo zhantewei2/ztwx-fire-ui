@@ -115,11 +115,11 @@ const webpackConfigBase={
     },
     plugins:[
         new VueLoaderPlugin(),
-        // new VueDtsPlugin({
-        //     inputFile:path.join(WORKSPACE_PATH,"index.ts"),
-        //     inputDir:WORKSPACE_PATH,
-        //     outputDir:DIST_DTS_PATH
-        // }),
+        new VueDtsPlugin({
+            inputFile:path.join(WORKSPACE_PATH,"index.ts"),
+            inputDir:WORKSPACE_PATH,
+            outputDir:DIST_DTS_PATH
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "index.css"

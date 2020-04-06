@@ -1,6 +1,6 @@
 {
   "name": "@condyyobeta/fire-ui",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -14,7 +14,6 @@
     "watch-src": "node lib/ztwManager/templates-manage/watch-cli.js src",
     "webfont": "cmWebfont start",
     "build:lib": "vue-cli-service build --target lib --name index --dest lib/package2 src/ztwComponents/index.ts",
-    "myBuild:lib-type": "tsc src/ztwComponents/index.ts --outDir lib/packageTypes --noResolve --declaration",
     "myBuild:lib": "webpack --config src/ztwComponents/ztwx.webpack.js"
   },
   "types": "lib/packageTypes/index.d.ts",

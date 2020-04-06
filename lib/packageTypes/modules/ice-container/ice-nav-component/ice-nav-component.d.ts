@@ -9,6 +9,7 @@ export default class extends Vue {
     dataLevel: number;
     showAll: boolean;
     navDataHandler: NavDataHandler;
+    created(): void;
     watchData(dataDict: {
         [key: string]: NavListItem[];
     }): void;

@@ -1,2 +1,4 @@
 dest
 cm-webfont
+*.lock
+package-lock.json

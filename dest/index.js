@@ -1,9 +1,9 @@
 "use strict";
 exports.__esModule = true;
 var view_1 = require("./view");
+var viewCache_1 = require("./viewCache");
 var innerRouterPlugin_1 = require("./innerRouterPlugin");
 exports.IceInnerRouterPlugin = innerRouterPlugin_1.IceInnerRouterPlugin;
-var viewCache_1 = require("./viewCache");
 var IceRouterPluginManager = /** @class */ (function () {
     function IceRouterPluginManager(Vue) {
         this.plugins = [];

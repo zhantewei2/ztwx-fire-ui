@@ -22,7 +22,7 @@ module.exports=class TsCompile extends VueSuffix{
             if(outputFile.endsWith(".d.ts")){
                 fs.copyFileSync(sourceFile,outputFile);
             }else{
-                const tscStream=spawn("tsc",[sourceFile,'--outDir',outputDir,"--noResolve","--declaration"]);
+                const tscStream=spawn(process.platform==="win32"?"tsc.cmd":"tsc",[sourceFile,'--outDir',outputDir,"--noResolve","--declaration"]);
                 tscStream.on("close",()=>{
                     resolve();
                     handleOutTs(this.getDtsFilePath(outputFile))
