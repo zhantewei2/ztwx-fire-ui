@@ -5,12 +5,16 @@
 @import "./mixins/media-var";
 @import "mixins/animation";
 @import "mixins/utils";
+@import "mixins/disabled";
+@import "mixins/ripple";
 @import "mixins/text";
 @import "mixins/line";
 @import "mixins/shadow";
 @import "mixins/bg";
 @import "mixins/badge";
 @import "mixins/autoFill";
+@import "mixins/btn";
+@import "mixins/input";
 @import "animation";
 @import "card";
 @import "modules";
@@ -24,3 +28,5 @@
 @import "text";
 @import "loader";
 @import "form";
+@import "btn";
+@import "input";

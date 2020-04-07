@@ -1,0 +1,86 @@
+.ice-input-wrapper{
+
+  &>article{
+    position:relative;
+    display:flex;
+    align-items: center;
+    background:gainsboro;
+  }
+  &>header{}
+}
+.ice-input-container{
+   flex:1;
+   flex-shrink: 1;
+   position:relative;
+   z-index:1;
+}
+.ice-input{
+  width:100%;
+  background:transparent;
+  border:none;
+  &:focus{
+    border:none;
+    outline:none;
+  }
+}
+.ice-input-placeholder{
+  @include use-transition($type:fast);
+  z-index:-1;
+  position:absolute;
+  left:0;
+  top:50%;
+  transform: translate3d(0,-50%,0);
+}
+.ice-input-line{
+  @include use-transition($type:fast);
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:$input-line-height;
+  transform:scaleX(0.3);
+  opacity:0;
+}
+.ice-input-prefix,.ice-input-suffix{
+  padding:$input-attach-p;
+  text-align: center;
+}
+.ice-input-attach-clear{
+
+}
+
+.ice-input-wrapper{
+  &.--with-prefix{
+
+  }
+  &.--with-focus{
+    .ice-input-line{
+      opacity:1;
+      transform: scaleX(1);
+    }
+  }
+  &.--with-open-placeholder{
+    .ice-input-placeholder{
+      top:0;
+      transform: translate3d(0,-100%,0);
+    }
+  }
+}
+@each $key,$value in $input-size{
+    .ice-input-wrapper.ice-wrapper-size-#{$key}{
+      .ice-input{
+        height:$value*3;
+      }
+      &>header{
+        height:$value*1.5;
+      }
+    }
+
+}
+@each $key,$value in $input-colors{
+    .ice-input-wrapper.ice-wrapper-color-#{$key}{
+      .ice-input-line{
+        background:$value;
+      }
+    }
+}

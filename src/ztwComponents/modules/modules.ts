@@ -12,6 +12,8 @@ export {IceBtnLoadingModule,BtnLoadRef} from "./ice-plugin/ice-btn-loading";
 export {IceInnerRouterModule,IceInnerRouterPlugin} from "./ice-inner-router";
 export {CacheComponentRef} from "./ice-inner-router/innerCache";
 
+//component module
+export {ComponentModule} from "../components/component.module";
 export {
     IceContainerModule,
 } from "./ice-container/ice-container.module";
