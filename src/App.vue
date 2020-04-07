@@ -1,15 +1,6 @@
 <template>
-  <div id="app">
-    <cmIce-container :data="navData">
-      <router-view></router-view>
-      <span slot="header-left">
-        <button @click="select('one')">list-one</button>
-        <button @click="select('two')">list-two</button>
-      </span>
-      <span slot="header-right">
-        header-right
-      </span>
-    </cmIce-container>
+  <div id="app" style="padding:2rem">
+    <router-view/>
   </div>
 </template>
 
@@ -24,15 +15,7 @@ export default class App extends Vue {
 
   constructor(){
     super();
-    this.navData=dataFactory([
-      {label:"aa-label",children:[
-          {path:"/aa",label:"aa"},
-          {path:"/bb",label:"bb"},
-      ]},
-      {label:"bb-label",children:[
-          {path:"/cc",label:"cc-active"}
-      ]}
-      ]);
+
   }
   select(){
 

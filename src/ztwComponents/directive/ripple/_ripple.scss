@@ -3,11 +3,6 @@
   60%{transform:scale3d(5,5,5);opacity:.2}
   100%{transform:scale3d(8,8,8);opacity:0}
 }
-$ripple-theme:(
-        deep:rgba(white,.2) white rgba(white,.1),
-        light:rgba(black,.1) rgba(black,.6) rgba(gray,.1)
-);
-
 .ripple-bubbling{
   display:block;
   position:absolute;
@@ -26,19 +21,18 @@ $ripple-theme:(
   background-color:transparent;
   transition:background .5s ease;
 }
-@each $key,$value in $ripple-theme{
-  .ripple-wrapper-#{$key}{
-    $bgColor:nth($value,1);
-    $bubblingColor:nth($value,2);
-    $hoverColor:nth($value,3);
-    &:hover{
-      background-color:$hoverColor;
-    }
-    &.ripple-active{
-      background-color:$bgColor;
-    }
-    .ripple-bubbling{
-      background:$bubblingColor;
-    }
+.ripple-wrapper-light{
+  @include Ripple(null,light);
+}
+.ripple-wrapper-deep{
+  @include Ripple(null,deep);
+}
+
+@each $key,$value in $color-various-plus{
+  .ripple-color-#{$key}{
+    @include Ripple($value);
+  }
+  .ripple-reversi-#{$key}{
+    @include Ripple(null,if(yiq-is-light($value),"light","deep"));
   }
 }

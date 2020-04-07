@@ -6,14 +6,16 @@ $--shadow-enabled: true !default;
 $shadow-color: rgb(45, 25, 80) !default;
 $base-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "MicrosoftYaHei", "WenQuanYi Micro Hei", sans-serif;
 
-$color-primary: #ED7861 !default;
+$color-primary: #3F51B5 !default;
 $color-secondary: #FFCE00 !default;
 $color-thirdly: #D37465 !default;
-$color-assist: #259b24 !default;
-$color-warn:yellow !default;
-$color-error: red !default;
-$color-success: green !default;
-
+$color-assist: #673AB7 !default;
+$color-warn: #ff7c13 !default;
+$color-error: #ff5f44 !default;
+$color-success: #44ca89 !default;
+$color-default: #464646 !default;
+$color-disabled: #e1e1e1 !default;
+$color-font-disabled: #8d8d8d !default;
 $color-various:(
         primary:$color-primary,
         assist:$color-assist,
@@ -21,6 +23,9 @@ $color-various:(
         success:$color-success,
         error:$color-error
 );
+$color-various-plus:map_merge($color-various,(
+  default:$color-default
+));
 
 $color-cover-bg: rgba(black, .5) !default; //cover背景色;
 $color-cover-light:rgba(black,.1) !default;
@@ -58,7 +63,8 @@ $default-bg: white;
 
 $use-radius: true;
 $base-radius: .5em;
-
+$use-linear: true;
+$use-linear-light:false; //浅色渐变，false为深色渐变
 
 $z-index: (
         fireHeader:100,
@@ -79,6 +85,12 @@ $text-size: (
         now:16px,
         large:18px
 );
+$base-size:(
+        small:10px,
+        now:14px,
+        medium:18px,
+        large:22px
+) !default;
 
 //shadow
 
@@ -162,4 +174,12 @@ $avatar-size: (
         medium:2rem,
         large:2.5rem,
         x:3rem
-)//form
+);
+//form
+
+$btn-size:$base-size;
+$btn-colors:$color-various-plus;
+$btn-useLinear:true;
+$btn-distance:1rem; //distance between ice-btn
+$btn-icon-size:1.2em;
+$btn-icon-dis:0.2em;

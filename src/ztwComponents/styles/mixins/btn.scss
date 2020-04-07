@@ -1,0 +1,75 @@
+%base-btn{
+  box-sizing: border-box;
+  outline: none;
+  position:relative;
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  &:focus{
+    outline:none;
+  }
+  overflow:hidden;
+  @include use-transition();
+
+}
+%btn-appear-disabled{
+  background:$color-disabled !important;
+}
+@mixin BtnAppear($bgColor){
+  @include Disabled(appear);
+  $fontColor:yiq-color($bgColor);
+  color:$fontColor;
+  border:1px solid $bgColor;
+  @include LinearBG($bgColor,$btn-useLinear,button);
+  @include Shadow(button,$bgColor);
+  &.ripple-callback{
+    @include Shadow(buttonDeep,$bgColor);
+  }
+  .ripple-btn{
+    @include RippleAutoYiq($bgColor);
+  }
+}
+@mixin BtnSize($sizeValue){
+  font-size:$sizeValue;
+  padding:$sizeValue*0.7 $sizeValue*0.8;
+}
+@mixin BtnOutline($bgColor){
+  @include Disabled(outline);
+  border:1px solid $bgColor;
+  background:transparent;
+  $fontColor:yiq-color($bgColor,$bgColor,$--yiq-dark);
+  color:$fontColor;
+  @include Shadow(button,$bgColor);
+  .ripple-btn{
+    @include Ripple($bgColor);
+  }
+  &.ripple-callback{
+    @include Shadow(buttonDeep,$bgColor);
+  }
+}
+
+@mixin BtnPure($bgColor){
+  @include Disabled(pure);
+  background:transparent;
+  color:yiq-color($bgColor,$bgColor,$--yiq-dark);
+  &:hover{
+    box-shadow:none !important;
+  }
+  .ripple-btn{
+    @include Ripple($bgColor);
+  }
+}
+
+@mixin BtnCandy($colorValue){
+  @include LucencyBG($colorValue);
+  @include Disabled(candy);
+}
+
+
+@mixin BtnIconSize($sizeValue){
+  i{
+    font-size:$sizeValue*1.3;
+  }
+  height:$sizeValue*3;
+  width:$sizeValue*3;
+}

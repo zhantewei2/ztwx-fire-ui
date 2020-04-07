@@ -12,7 +12,7 @@ export class RelativeFixed{
     }
     space:number;
     dis:number;
-    relativePosition(targetEl:HTMLElement,relativeEl:HTMLElement,position:"top"|"left"|"right"|"bottom"="bottom"):{"top":number,"left":number}{
+    relativePosition(targetEl:HTMLElement,relativeEl:HTMLElement,position:"top"|"left"|"right"|"bottom"="bottom"):{"top":number;"left":number}{
         const rect=relativeEl.getBoundingClientRect();
         const obj={
             rect,
@@ -26,14 +26,16 @@ export class RelativeFixed{
         return this.switchPosition(position,obj);
     }
     /**
-     * 
-     * @param {"top"|"left"|"right"|"bottom"} position 
+     *
+     * @param {"top"|"left"|"right"|"bottom"} position
+     * @param obj
+     * @param adjust
      */
     switchPosition(position:"top"|"left"|"right"|"bottom",obj:any,adjust:boolean=false):{"top":number;"left":number}{
         let top,left;
         const targetH=obj.target.offsetHeight;
         const targetW=obj.target.offsetWidth;
-        const minW=this.dis;
+        // const minW=this.dis;
         const minH=this.dis;
         const maxW=obj.winW-this.dis;
         const maxH=obj.winH-this.dis;

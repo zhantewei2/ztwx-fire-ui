@@ -1,0 +1,34 @@
+@mixin Ripple($color:null,$color-various:null){
+  $value:null;
+  @if $color==null {
+    @warn $color-various;
+    @if $color-various == "deep"{
+      $value: rgba($--yiq-light,.2) white rgba($--yiq-light,.3);
+    }
+    @else if $color-various == "light"{
+      $value: rgba($--yiq-dark,.1) rgba($--yiq-dark,.6) rgba($--yiq-dark,.1);
+    }
+  }
+  @else{
+    $value: rgba($color,.2) rgba($color,2) rgba($color,.1);
+  }
+  $bgColor:nth($value,1);
+  $bubblingColor:nth($value,2);
+  $hoverColor:nth($value,3);
+  &:hover{
+    background-color:$hoverColor;
+  }
+  &.ripple-active{
+    background-color:$bgColor;
+  }
+  .ripple-bubbling{
+    background:$bubblingColor;
+  }
+}
+@mixin RippleAutoYiq($color){
+  @if yiq-is-light($color){
+    @include Ripple(null,light);
+  }@else{
+    @include Ripple(null,deep);
+  }
+}

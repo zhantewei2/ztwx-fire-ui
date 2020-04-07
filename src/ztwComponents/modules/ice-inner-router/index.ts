@@ -1,4 +1,4 @@
-import {keepOneVue} from "../oneVue";
+import Vue from "vue";
 import View from "./view";
 export {IceInnerRouterPlugin} from "./innerRouterPlugin";
 import {IceInnerRouterConfig,IceRouterPlugin} from "./interface";
@@ -29,7 +29,6 @@ export class IceRouterPluginManager{
 export const IceInnerRouterModule=(plugins:IceRouterPlugin[]
 )=>({
     install(Vue:any){
-        keepOneVue(Vue);
         if((this as any).installed)return;
         (this as any).installed=true;
         const iceRouterPluginManager=new IceRouterPluginManager(Vue);
