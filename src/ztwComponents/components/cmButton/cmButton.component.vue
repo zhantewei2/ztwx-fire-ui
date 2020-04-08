@@ -1,5 +1,7 @@
 <template>
-    <button class="btn ice-btn"
+    <button
+        class="btn ice-btn"
+        v-on="$listeners"
         :class="[
             'ice-btn-size-'+size,
             pure||pure===''?('ice-btn-pure-'+color):

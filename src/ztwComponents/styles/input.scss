@@ -1,12 +1,16 @@
 .ice-input-wrapper{
-
   &>article{
     position:relative;
     display:flex;
     align-items: center;
-    background:gainsboro;
+    border-bottom:1px solid $light-thin-color;
   }
-  &>header{}
+  .ice-input-icon{
+    font-size:1.5em;
+  }
+  &>footer{
+    color:$input-error-color;
+  }
 }
 .ice-input-container{
    flex:1;
@@ -19,6 +23,7 @@
   background:transparent;
   border:none;
   padding:$input-padding;
+  font-size:1em;
   &:focus{
     border:none;
     outline:none;
@@ -63,6 +68,7 @@
   }
   &.--with-open-placeholder{
     .ice-input-placeholder{
+      font-size:1.1em;
       top:0;
       transform: translate3d(0,-100%,0);
     }
@@ -70,11 +76,16 @@
 }
 @each $key,$value in $input-size{
     .ice-input-wrapper.ice-wrapper-size-#{$key}{
+      font-size:$value;
       .ice-input{
         height:$value*3;
       }
       &>header{
         height:$value*1.5;
+      }
+      &>footer{
+        height:$value*1.8;
+        line-height:$value*1.8;
       }
     }
 
@@ -83,6 +94,21 @@
     .ice-input-wrapper.ice-wrapper-color-#{$key}{
       .ice-input-line{
         background:$value;
+      }
+      >article{
+        border-color:soft_text($value);
+      }
+      .ice-input-placeholder{
+        color:$value;
+        font-weight: bold;
+      }
+      &.--with-open-placeholder{
+        .ice-input-placeholder{
+          color:$value;
+        }
+      }
+      .ice-input-icon,.ice-input{
+        color:$value;
       }
     }
 }

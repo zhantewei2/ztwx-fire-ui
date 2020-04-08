@@ -34,3 +34,7 @@
   font-size:$text-title-size;
   padding:$text-title-p;
 }
+.ice-des{
+  @extend  .text-color-des;
+  font-size:$text-des-size;
+}

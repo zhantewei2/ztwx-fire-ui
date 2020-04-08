@@ -14,6 +14,10 @@ export {CacheComponentRef} from "./ice-inner-router/innerCache";
 
 //component module
 export {ComponentModule} from "../components/component.module";
+
+//login module
+export {IceLoginPageModule} from "./ice-login-page/ice-login-page.module";
+
 export {
     IceContainerModule,
 } from "./ice-container/ice-container.module";

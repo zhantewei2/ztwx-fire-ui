@@ -1,13 +1,11 @@
 import Vue from "vue";
-import {Component, Emit, Prop} from "vue-property-decorator";
+import {Component, Emit, Prop, Watch} from "vue-property-decorator";
 import {BaseColors, BaseSize} from "../../types";
 
 @Component({
     render(this:IceInputComponent,h:any){
-        console.log("value",this.value);
         const listeners:any=Object.assign({},this.$listeners,{
             input:(e:any)=>{
-                this.input(e.target.value);
                 this.$emit("input",e.target.value)
             },
             focus:()=>{
@@ -25,9 +23,10 @@ import {BaseColors, BaseSize} from "../../types";
         });
 
         const attrs=Object.assign({},this.$attrs,{
-            value:this.value,
+            value:undefined,
             placeholder:''
         });
+
         return (
 
         <div class={`ice-input-wrapper${(this as any).wrapperAttach}`}>
@@ -40,8 +39,9 @@ import {BaseColors, BaseSize} from "../../types";
                 }
                 <span class={'ice-input-container'}>
                     {h("input",{
+                        ref:'input',
                         on:listeners,
-                        attrs:attrs,
+                        attrs,
                         class:'ice-input'
                     })}
                     <div ref={'placeholder'} class={'ice-input-placeholder'}>
@@ -65,6 +65,8 @@ import {BaseColors, BaseSize} from "../../types";
                 <div class={'ice-input-line'}></div>
             </article>
             <footer>
+                {this.error}
+                {this.$slots.error}
             </footer>
         </div>
         )
@@ -95,14 +97,17 @@ export class IceInputComponent extends Vue{
     @Prop({default:false})useEnter:boolean;
     @Prop({})placeholder:string;
     @Prop({default:true})clearable:any;
+    @Prop({default:""})error:string;
     @Emit("enter")
     emitEnter(){}
+    @Watch("value",{immediate:true})
+    watchValue(v:string){
+        this.isEmpty=v===""||v===undefined;
+        this.setInputValue(v);
+    }
     isFocus:boolean=false;
     isEmpty:boolean=false;
 
-    input(v:any){
-        this.isEmpty=v===""||v===undefined;
-    }
     inputFocus(){
         this.isFocus=true;
     }
@@ -130,7 +135,23 @@ export class IceInputComponent extends Vue{
         })
     }
     clearValue(){
-        console.log("clearValue");
         this.$emit("input","");
+    }
+
+    /**
+     * value can not async when changed ..via createElement input
+     */
+    pristine:boolean=true;
+    setInputValue(v:any){
+        if(this.pristine){
+            setTimeout(()=>{
+                const inputEl=(this.$refs as any).input;
+                inputEl&&(inputEl.value=v);
+            })
+        }else{
+            const inputEl=(this.$refs as any).input;
+            inputEl&&(inputEl.value=v);
+        }
+        this.pristine=false;
     }
 }

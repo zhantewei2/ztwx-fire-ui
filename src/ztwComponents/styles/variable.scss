@@ -11,7 +11,7 @@ $color-secondary: #FFCE00 !default;
 $color-thirdly: #D37465 !default;
 $color-assist: #673AB7 !default;
 $color-warn: #ff7c13 !default;
-$color-error: #ff5f44 !default;
+$color-error: red !default;
 $color-success: #44ca89 !default;
 $color-default: #464646 !default;
 $color-disabled: #e1e1e1 !default;
@@ -91,6 +91,8 @@ $text-title-p:0.5rem 1rem;
 
 $text-brand-size:1.5rem;
 $text-brand-p:1rem 1.5rem;
+
+$text-des-size:12px;
 
 $base-size:(
         small:10px,
@@ -194,8 +196,9 @@ $btn-icon-dis:0.2em;
 
 //input
 $input-size:$base-size;
-$input-colors:$color-various-plus;
+$input-colors:map_merge($color-various-plus,(black:black));
 $input-line-height:2px;
 $input-attach-p:0 .5em 0 0.8em;
 $input-padding: 0 .8em;
 $input-clear-p:0 0.5em;
+$input-error-color:$color-error;
