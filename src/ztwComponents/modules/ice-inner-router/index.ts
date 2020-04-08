@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 import Vue from "vue";
->>>>>>> 8e2b240ee92f572de52eda8081ff9e1dbe5f9189
 import View from "./view";
 
 import {IceInnerRouterConfig,IceRouterPlugin} from "./interface";

@@ -52,6 +52,22 @@ const webpackConfigBase={
                 ]
             },
             {
+                test:/.tsx/,
+                use:[
+                    "babel-loader",
+                    {
+                        loader:"ts-loader",
+                        options:{
+                            transpileOnly: true,
+                            happyPackMode: false,
+                            appendTsxSuffixTo: [
+                                '\\.vue$'
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
                 test:/\.ts$/,
                 exclude:/node_modules/,
                 use:[

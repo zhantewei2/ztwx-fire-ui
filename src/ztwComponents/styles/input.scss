@@ -18,6 +18,7 @@
   width:100%;
   background:transparent;
   border:none;
+  padding:$input-padding;
   &:focus{
     border:none;
     outline:none;
@@ -26,6 +27,7 @@
 .ice-input-placeholder{
   @include use-transition($type:fast);
   z-index:-1;
+  padding:$input-padding;
   position:absolute;
   left:0;
   top:50%;
@@ -46,7 +48,7 @@
   text-align: center;
 }
 .ice-input-attach-clear{
-
+  padding:$input-clear-p;
 }
 
 .ice-input-wrapper{

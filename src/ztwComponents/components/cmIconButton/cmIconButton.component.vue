@@ -4,6 +4,7 @@
               'ice-icon-btn-size-'+size,
               appearCss
         ]"
+            v-on="this.$listeners"
             :disabled="disabled||disabled===''"
     >
         <slot></slot>
@@ -34,6 +35,7 @@
         @Prop({default:false})candy:any;
         @Prop({default:false})disabled:boolean;
         @Prop({default:false})fab:boolean;
+
         mounted(){
             let cssName:string=this.candy||this.candy===''?'ripple-color-'+this.color:'ripple-btn';
 

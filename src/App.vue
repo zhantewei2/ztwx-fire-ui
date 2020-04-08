@@ -6,13 +6,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import {NavListItem} from "./ztwComponents/modules/lib-fire/data.interface";
-import {dataFactory} from "./ztwComponents/modules/lib-fire/NavDataHandler";
 
 @Component({})
 export default class App extends Vue {
-  navData:NavListItem[]=[];
-
   constructor(){
     super();
 

@@ -1,9 +1,10 @@
 import Vue from "vue";
 import {Component, Emit, Prop} from "vue-property-decorator";
-import {BaseColors, BaseSize} from "@/ztwComponents/types";
+import {BaseColors, BaseSize} from "../../types";
 
 @Component({
     render(this:IceInputComponent,h:any){
+        console.log("value",this.value);
         const listeners:any=Object.assign({},this.$listeners,{
             input:(e:any)=>{
                 this.input(e.target.value);
@@ -48,9 +49,11 @@ import {BaseColors, BaseSize} from "@/ztwComponents/types";
                     </div>
                 </span>
                 {(this as any).isClear?
-                    <ice-icon-button size={'small'} color={this.color} class={'ice-input-attach-clear'}>
-                        <i class={'fa fa-close'}> </i>
-                    </ice-icon-button>:null
+                    <span class={'ice-input-attach-clear'}>
+                        <ice-icon-button onclick={this.clearValue} size={'small'} color={this.color} >
+                            <i class={'fa fa-close'}> </i>
+                        </ice-icon-button>
+                    </span>:null
                 }
 
                 {this.$slots.suffix?
@@ -99,7 +102,6 @@ export class IceInputComponent extends Vue{
 
     input(v:any){
         this.isEmpty=v===""||v===undefined;
-        console.log(this.isEmpty)
     }
     inputFocus(){
         this.isFocus=true;
@@ -126,5 +128,9 @@ export class IceInputComponent extends Vue{
             //use default css transform if prefixEl not exists
             placeholderEl.style.transform=open?`translate3d(${0 - prefixEl.offsetWidth}px,-100%,0)`:"";
         })
+    }
+    clearValue(){
+        console.log("clearValue");
+        this.$emit("input","");
     }
 }
