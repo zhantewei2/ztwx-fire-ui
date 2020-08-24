@@ -1,3 +1,6 @@
 @function lucency_text($color){
   @return rgba($color,.8);
 }
+@function soft_text($color){
+  @return rgba($color,.3);
+}

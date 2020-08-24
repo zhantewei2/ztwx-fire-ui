@@ -7,3 +7,17 @@
     color: $color;
   }
 }
+@mixin ButtonBg($color,$light:$use-linear-light){
+  $compareColor:if($light,lighten($color,20%),darken($color,12%));
+  background:linear-gradient(45deg,$compareColor,$color);
+}
+
+@mixin LinearBG($color,$use:true,$various,$light:$use-linear-light){
+  @if $use-linear and $use{
+    @if $various == button{
+      @include ButtonBg($color,$light);
+    }
+  }@else{
+    background:$color;
+  }
+}

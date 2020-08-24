@@ -1,0 +1,63 @@
+.btn{
+  &~.btn{
+    margin-left:$btn-distance;
+  }
+}
+.ice-btn{
+  @extend %base-btn;
+  @include Radius();
+  i{
+    vertical-align: middle;
+    font-size:$btn-icon-size;
+    &:first-child{
+      margin-right:$btn-icon-dis;
+    }
+    &:last-child{
+      margin-left:$btn-icon-dis;
+    }
+  }
+  min-width:5.5em;
+}
+.ice-icon-btn{
+  @extend  %base-btn;
+  @include Iflex-center();
+  border-radius:50%;
+}
+
+@each $key,$value in $btn-size{
+    .ice-btn-size-#{$key}{
+      @include BtnSize($value);
+    }
+    .ice-icon-btn-size-#{$key}{
+      @include BtnIconSize($value);
+    }
+};
+
+@each $key,$value in $btn-colors{
+    .ice-btn-#{$key}{
+        @include BtnAppear($value);
+    }
+    .ice-btn-outline-#{$key}{
+        @include BtnOutline($value);
+    }
+    .ice-btn-pure-#{$key}{
+        @include BtnPure($value);
+    }
+    .ice-btn-candy-#{$key}{
+        @include BtnCandy($value);
+    }
+}
+
+
+
+.ice-btn,.ice-icon-btn{
+  &[disabled]{
+    cursor:not-allowed;
+    .ripple-wrapper{
+      display:none;
+    }
+  }
+}
+.ice-btn-block{
+  width:100%;
+}

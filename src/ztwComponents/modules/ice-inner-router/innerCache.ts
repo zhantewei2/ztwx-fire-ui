@@ -24,7 +24,7 @@ export class InnerCache{
         this.clearComponentRefs(false,1);
         return true;
     }
-    back():{path:string,tag:string}|null{
+    back():{path:string,tag :any}|null{
         if(!this.cacheComponentRefs.length||this.cacheComponentRefs.length<2)return null;
         const targetIndex=this.cacheComponentRefs.length-2;
         const {path,tag}:CacheComponentRef=this.cacheComponentRefs[targetIndex];

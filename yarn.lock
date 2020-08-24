@@ -1376,6 +1376,19 @@
   resolved "https://registry.npm.taobao.org/@xtuc/long/download/@xtuc/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=
 
+"@ztwx/auto-template@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/@ztwx/auto-template/-/auto-template-0.0.6.tgz#7cbfb62faad0039404679e4275f61159eeba1e00"
+  integrity sha512-nK7DmRXR9kMnq0fJX5kTPmSNyXoBZ+4E+AOsTCJQHTX/AlMcha7djuGefayg76T9Fx9nXhmTds+S9hViqkiIkg==
+  dependencies:
+    "@ztwx/logger" "0.0.3"
+    chokidar "^3.3.1"
+
+"@ztwx/logger@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ztwx/logger/-/logger-0.0.3.tgz#401a8b4af3a7fbb038c4f67597331c3ddf11db41"
+  integrity sha512-0vxKw9Q+FvsKTyMrWXOoCIDmEFRFucKq91H580nqUfK43t5gbMRRhI01D+yQx+5U6dH1NRk9CCvPYGOAPh1FVQ==
+
 "@ztwx/webfont@^0.0.1-alpha":
   version "0.0.1-alpha"
   resolved "https://registry.npm.taobao.org/@ztwx/webfont/download/@ztwx/webfont-0.0.1-alpha.tgz#2cf4db47adf8870f6f10fcb662537ac0f95deee9"

@@ -40,6 +40,7 @@ import {Component,Prop} from "vue-property-decorator";
 import {NavListItem} from "../../lib-fire/data.interface";
 import {RippleDirection} from "../../../directive/ripple/ripple.directive";
 @Component({
+    name:"ice-container-nav-item",
     directives:{
         "cm-ripple":RippleDirection
     }

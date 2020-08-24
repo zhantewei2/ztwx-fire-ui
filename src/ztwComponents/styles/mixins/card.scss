@@ -6,4 +6,5 @@
 @mixin CardSkin(){
     border:$card-border;
     box-shadow:$card-shadow;
+    background:$card-bg;
 }

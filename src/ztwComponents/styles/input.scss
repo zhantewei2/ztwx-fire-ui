@@ -1,0 +1,117 @@
+.ice-input-wrapper{
+  &>article{
+    position:relative;
+    display:flex;
+    align-items: center;
+    border-bottom:1px solid $light-thin-color;
+  }
+  .ice-input-icon{
+    font-size:1.5em;
+  }
+  &>footer{
+    color:$input-error-color;
+  }
+}
+.ice-input-container{
+   flex:1;
+   flex-shrink: 1;
+   position:relative;
+   z-index:1;
+}
+.ice-input{
+  width:100%;
+  background:transparent;
+  border:none;
+  padding:$input-padding;
+  font-size:1em;
+  &:focus{
+    border:none;
+    outline:none;
+  }
+}
+.ice-input-placeholder{
+  @include use-transition($type:fast);
+  font-size:1em;
+  z-index:-1;
+  padding:$input-padding;
+  position:absolute;
+  left:0;
+  top:50%;
+  transform: translate3d(0,-50%,0);
+}
+.ice-input-line{
+  @include use-transition($type:fast);
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:$input-line-height;
+  transform:scaleX(0.3);
+  opacity:0;
+}
+.ice-input-prefix,.ice-input-suffix{
+  padding:$input-attach-p;
+  text-align: center;
+}
+.ice-input-attach-clear{
+  padding:$input-clear-p;
+}
+
+.ice-input-wrapper{
+  &.--with-prefix{
+
+  }
+  &.--with-focus{
+    .ice-input-line{
+      opacity:1;
+      transform: scaleX(1);
+    }
+  }
+  &.--with-open-placeholder{
+    .ice-input-placeholder{
+      font-size:1.1em;
+      top:0;
+      transform: translate3d(0,-100%,0);
+    }
+  }
+}
+@each $key,$value in $input-size{
+    .ice-input-wrapper.ice-wrapper-size-#{""+$key}{
+      $font-size:$value*1.1;
+      font-size:$font-size;
+      .ice-input{
+        height:$value*3;
+        font-size:$font-size;
+      }
+      &>header{
+        height:$value*1.5;
+      }
+      &>footer{
+        height:$value*1.8;
+        line-height:$value*1.8;
+      }
+    }
+
+}
+@each $key,$value in $input-colors{
+    .ice-input-wrapper.ice-wrapper-color-#{""+$key}{
+      .ice-input-line{
+        background:$value;
+      }
+      >article{
+        border-color:soft_text($value);
+      }
+      .ice-input-placeholder{
+        color:$value;
+        font-weight: bold;
+      }
+      &.--with-open-placeholder{
+        .ice-input-placeholder{
+          color:$value;
+        }
+      }
+      .ice-input-icon,.ice-input{
+        color:$value;
+      }
+    }
+}

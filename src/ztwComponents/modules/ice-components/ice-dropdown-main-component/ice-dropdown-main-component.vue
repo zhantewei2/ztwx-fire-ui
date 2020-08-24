@@ -28,7 +28,9 @@
 import Vue from "vue";
 import {Component,Prop} from "vue-property-decorator";
 
-@Component({})
+@Component({
+    name:'ice-dropdown-main'
+})
 export default class extends Vue{
     @Prop({})parent:any;
     mainElement:HTMLElement;

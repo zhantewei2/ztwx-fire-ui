@@ -1,0 +1,38 @@
+%appear-disabled{
+  background:$color-disabled !important;
+  color:$color-font-disabled !important;
+  border: $color-default !important;
+  box-shadow: none !important;
+}
+%outline-disabled{
+  border-color:$color-disabled !important;
+  color:$color-font-disabled !important;
+  box-shadow: none !important;
+}
+%pure-disabled{
+  color:$color-font-disabled !important;
+}
+%candy-disabled{
+  background:rgba($color-disabled,.5) !important;
+  color:rgba($color-font-disabled,.5) !important;
+  i{
+    color:rgba($color-font-disabled,.5) !important;
+  }
+}
+
+@mixin Disabled($various){
+  &[disabled]{
+    @if $various == "appear"{
+      @extend %appear-disabled;
+    }
+    @else if $various == "outline"{
+      @extend %outline-disabled;
+    }
+    @else if $various == "pure"{
+      @extend %pure-disabled;
+    }
+    @else if $various == 'candy'{
+      @extend %candy-disabled;
+    }
+  }
+}

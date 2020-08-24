@@ -1,0 +1,15 @@
+
+.cover-tower{
+  @include Abs-full();
+  z-index:$cover-index;
+  display:none;
+}
+
+.cover-floor{
+  &.openDoor{
+    filter:blur(1px);
+    .cover-tower{
+      display:block;
+    }
+  }
+}

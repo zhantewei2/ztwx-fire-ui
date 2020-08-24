@@ -1,12 +1,11 @@
-export { IceInnerRouterPlugin } from "./innerRouterPlugin";
 import { IceRouterPlugin } from "./interface";
-import Vue from "vue";
+export { IceInnerRouterPlugin } from "./innerRouterPlugin";
 export declare class IceRouterPluginManager {
     plugins: IceRouterPlugin[];
     store: {};
-    Vue: Vue;
+    Vue: any;
     registry(plugin: IceRouterPlugin): void;
-    constructor(Vue: Vue);
+    constructor(Vue: any);
     getPlugins(): any[];
     getStore(): {};
 }

@@ -1,4 +1,3 @@
-import {keepOneVue} from "./oneVue";
 import CmLine from "../components/cmLine/cmLine.component.vue";
 import {RippleDirection} from "../directive/ripple/ripple.directive";
 
@@ -13,14 +12,20 @@ export {IceBtnLoadingModule,BtnLoadRef} from "./ice-plugin/ice-btn-loading";
 export {IceInnerRouterModule,IceInnerRouterPlugin} from "./ice-inner-router";
 export {CacheComponentRef} from "./ice-inner-router/innerCache";
 
+//component module
+export {ComponentModule} from "../components/component.module";
+
+//login module
+export {IceLoginPageModule} from "./ice-login-page/ice-login-page.module";
+
 export {
     IceContainerModule,
 } from "./ice-container/ice-container.module";
 
 
 export const FireContainerModule:any={
+  key:"fire-container",
   install:function(v:any){
-      keepOneVue(v);
       v.directive("cm-ripple",RippleDirection);
       v.component("cmFire-line",CmLine);
   }

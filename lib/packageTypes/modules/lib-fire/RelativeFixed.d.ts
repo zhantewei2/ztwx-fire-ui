@@ -15,6 +15,8 @@ export declare class RelativeFixed {
     /**
      *
      * @param {"top"|"left"|"right"|"bottom"} position
+     * @param obj
+     * @param adjust
      */
     switchPosition(position: "top" | "left" | "right" | "bottom", obj: any, adjust?: boolean): {
         "top": number;

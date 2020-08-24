@@ -17,7 +17,7 @@ export declare class InnerCache {
     toPrimary(): boolean;
     back(): {
         path: string;
-        tag: string;
+        tag: any;
     } | null;
     cacheRender(vNode: VNode, matcherPath: string, tag: string, iceMatcher: IceMatcher, subName: string): VNode;
     clearComponentRefs(all: boolean, start?: number): void;

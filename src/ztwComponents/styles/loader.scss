@@ -7,3 +7,26 @@
   vertical-align: middle;
   animation:IceFaLoaderAnimation 1s linear infinite;
 }
+.ice-loader{
+  z-index:$loader-index;
+  &.abs{
+    @include Abs-center();
+  }
+  &>.fa{
+    animation:IceFaLoaderAnimation 1s linear infinite;
+  }
+}
+
+@each $key,$value in $loader-colors{
+  .ice-loader-color-#{$key}{
+    color:lucency_text($value);
+  }
+}
+
+@each $key,$value in $loader-size{
+  .ice-loader-size-#{$key}{
+    &>.fa{
+      font-size:($value - 10px )*6;
+    }
+  }
+}

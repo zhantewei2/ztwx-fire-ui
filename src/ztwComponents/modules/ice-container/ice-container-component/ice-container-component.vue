@@ -31,16 +31,9 @@
 import Vue from "vue";
 import {Component,Prop} from "vue-property-decorator";
 import {NavListItem} from "../../lib-fire/data.interface";
-import IceHeaderComponent from "../ice-header-component/ice-header-component.vue";
-import IceBodyComponent from "../ice-body-component/ice-body-component.vue";
-import IceNavComponent from "../ice-nav-component/ice-nav-component.vue";
 
 @Component({
-       components:{
-        "cmIce-header":IceHeaderComponent,
-        "cmIce-nav":IceNavComponent,
-        "cmIce-body":IceBodyComponent
-    }
+    name:"ice-container"
 })
 export default class extends Vue{
     @Prop()data!:{[key:string]:NavListItem[]};

@@ -27,6 +27,7 @@ import {NavDataHandler} from "../../lib-fire/NavDataHandler";
 import IceNavItemComponent from "../ice-nav-item-component/ice-nav-item-component.vue";
 
 @Component({
+    name:"ice-container-nav",
     components:{
         "cmIce-nav-item":IceNavItemComponent
     }
@@ -37,9 +38,6 @@ export default class extends Vue{
     @Prop()dataLevel:number;
     @Prop()showAll:boolean; //展示所有navData;
     navDataHandler:NavDataHandler=new NavDataHandler(3);
-    created(){
-        console.log('ice-nav',this.$route);
-    }
 
     @Watch("navData",{
         immediate:true

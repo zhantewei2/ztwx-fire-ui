@@ -29,7 +29,7 @@ import Vue from "vue";
 import {Component} from "vue-property-decorator";
 
 @Component({
-    name:"cmIce-header"
+    name:"ice-container-header"
 })
 export default class extends Vue{
     constructor() {
