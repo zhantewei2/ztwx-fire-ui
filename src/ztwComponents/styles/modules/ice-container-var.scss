@@ -14,18 +14,18 @@ $--ice-header-shadow:null !default;
 /**
   nav
  */
-$--ice-nav-bg:$fire-nav-bg;
-$--ice-nav-shadow:2px 0 12px -3px rgba(0,0,0,0.1);
-$--ice-nav-line-color:$light-font-color;
+$--ice-nav-bg:$fire-nav-bg !default;
+$--ice-nav-shadow:2px 0 12px -3px rgba(0,0,0,0.1) !default;
+$--ice-nav-line-color:$light-font-color !default;
 $--ice-nav-line-active-color:$color-primary !default;
 $--ice-nav-line-active-bg:null !default;
-$--ice-nav-line-offset:1rem;
+$--ice-nav-line-offset:1rem !default;
 $--ice-nav-line-p:.5rem !default;
 $--ice-nav-item-nav-bg:rgba($light-font-color,0.05) !default; //次级导航body背景色
 $--ice-nav-footer-bg:$light-line-color !default;
 $--ice-nav-footer-hover:$light-thin-color !default;
-$--ice-nav-footer-h:3rem;
-$--ice-nav-header-btn-font:2rem;
+$--ice-nav-footer-h:3rem !default;
+$--ice-nav-header-btn-font:2rem !default;
 //$--ice-nav-line-media:(
 //  small:(px:5px),
 //        medium:(px:7px),
