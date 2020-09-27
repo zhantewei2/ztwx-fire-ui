@@ -147,11 +147,11 @@ $fire-body-media-p: (
         medium:(p:1.5rem 2rem),
         large:(p:2rem 3rem),
         x:(p:2rem 4rem)
-);
+) !default;
 
 $fire-nav-brand: (
         p:.6em 1em,
-);
+) !default;
 $ztw-transition-line: .3s ease-out;
 $ztw-transition-fast: .2s ease-out;
 //cm line
