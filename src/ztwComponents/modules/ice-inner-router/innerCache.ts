@@ -43,7 +43,14 @@ export class InnerCache{
             iceMatcher,
             subName
         };
-        if(!preComponentRef||preComponentRef.key!=currentComponentRef.key){
+        if(preComponentRef&&preComponentRef.key===currentComponentRef.key){
+            currentComponentRef.iceMatcher=preComponentRef.iceMatcher;
+            let data:any=currentComponentRef.component.data;
+            if(data){
+                data.keepAlive=true;
+                data.iceInstance=currentComponentRef.iceMatcher.instanceComponent;
+            }
+        }else if(!preComponentRef||preComponentRef.key!=currentComponentRef.key){
             const existsComponentRef:CacheComponentRef|undefined=this.cacheComponentRefs.find((componentRef:CacheComponentRef)=>componentRef.key==currentComponentRef.key);
             if(existsComponentRef){
                 // hot update时不回获取旧instanceComponent
