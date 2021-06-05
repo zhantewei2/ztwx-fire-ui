@@ -100,9 +100,9 @@ export class IceInnerRouterPlugin implements IceInnerRouterPluginInterface,IceRo
      */
     public icePush(path:string,instance:Vue,params?:{[key:string]:any}){
         if(!path)return;
-        const targetPath=`${this.matcher.path}#${path}`;
+        const targetPath=this.matcher.path;
         const push=()=>{
-            this.history?instance.$router.push(targetPath):instance.$router.replace(targetPath);
+            this.history?instance.$router.push({...params,hash:`#${path}`,path:targetPath}):instance.$router.replace({...params,hash:`#${path}`,path:targetPath});
         };
         const componentRef=this.innerUrl.findInnerComponent(path,this.subView,this.matcher.path);
 
