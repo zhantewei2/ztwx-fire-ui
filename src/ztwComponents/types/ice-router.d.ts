@@ -6,6 +6,7 @@ declare module "vue/types/vue" {
             push:(path:string,params?:Record<string, any>)=>void;
             back:()=>void;
             toPrimary:()=>void;
+            clearCache:()=>void;
         }
         $iceRouteStore:{[key:string]:any}
         $iceInnerRouteTargetComponent:any;

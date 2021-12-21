@@ -20,7 +20,7 @@ export class IceInnerRouterPlugin implements IceInnerRouterPluginInterface,IceRo
     Vue:Vue;
     matcher:RouteMatcher;
     subView:any;
-    private clear(){
+    public clear(){
         this.innerCache.clearCache();
     }
     public listenHistory():Subject<CacheComponentRef[]>{
@@ -148,6 +148,7 @@ export class IceInnerRouterPlugin implements IceInnerRouterPluginInterface,IceRo
                         self.iceBack(this);
                     },
                     "toPrimary":()=>self.iceToPrimary(this),
+                    "clearCache":()=>self.clear(),
                 }
             },
         });
