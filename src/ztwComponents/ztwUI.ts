@@ -9,4 +9,4 @@ Vue.component("cm-height-transition",CmHeightTransitionComponent);
 Vue.component("cm-line",CmFireLine);
 
 //container 引入
-import {FireContainerModule} from "./modules/modules";
+import {FireContainerModule} from "./module/modules";

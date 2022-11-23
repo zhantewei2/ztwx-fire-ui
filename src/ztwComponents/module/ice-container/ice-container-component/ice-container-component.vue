@@ -30,7 +30,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {Component,Prop} from "vue-property-decorator";
-import {NavListItem} from "../../lib-fire/data.interface";
+import {NavListItem} from "@/ztwComponents";
 
 @Component({
     name:"ice-container"

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from "./router";
 import "./ztwComponents/styles/index.scss";
-import {FireContainerModule,IceContainerModule,ComponentModule,IceLoginPageModule} from "./ztwComponents/modules/modules";
+import {FireContainerModule,IceContainerModule,ComponentModule,IceLoginPageModule} from "./ztwComponents/module/modules";
 
 Vue.config.productionTip = false;
 

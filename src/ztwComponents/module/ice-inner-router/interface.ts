@@ -26,6 +26,15 @@ export interface IceSubViewRef{
     subName:string;
     instanceComponent:Vue|Promise<Vue>;
 }
+export interface ReturnNodeConfig {
+    data:any,
+    children:any|undefined,
+    primaryVNode:VNode,
+    matcher:any|RouteMatcher,
+    parent:any,
+    iceMatcher:IceMatcher
+    oKeepAlive:boolean
+}
 
 
 export interface IceRouterPlugin{
@@ -36,12 +45,7 @@ export interface IceRouterPlugin{
      */
     returnVnode:(
         h:CreateElement,
-        data:any,
-        children:any|undefined,
-        primaryVNode:VNode,
-        Matcher:any|RouteMatcher,
-        parent:any,
-        iceMatcher:IceMatcher
+        config: ReturnNodeConfig
     )=>VNode|undefined;
 
     /**
