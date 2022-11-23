@@ -21,8 +21,8 @@ export class IceInnerRouterPlugin implements IceInnerRouterPluginInterface, IceR
     matcher: RouteMatcher;
     subView: any;
 
-    public clear() {
-        this.innerCache.clearCache();
+    public clear(path?:string) {
+        this.innerCache.clearCache(path);
     }
 
     public listenHistory(): Subject<CacheComponentRef[]> {

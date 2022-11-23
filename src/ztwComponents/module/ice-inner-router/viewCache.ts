@@ -8,7 +8,6 @@ import { CreateElement, VNode } from "vue";
 export const iceCache = (view: any): any => ({
     props: {
         keepAlive: Boolean,
-        includes: Array
     },
     render(h: CreateElement) {
         let routerView: VNode = h(view);

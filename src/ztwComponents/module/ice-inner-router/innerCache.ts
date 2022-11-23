@@ -70,6 +70,7 @@ export class InnerCache {
                 this.cacheComponentRefsKeyMap.set(matcherPath, [...this.cacheComponentRefs]);
             }
         }
+        console.log(this.cacheComponentRefsKeyMap);
 
         const preComponentRef: CacheComponentRef | null = this.cacheComponentRefs.length ?
             this.cacheComponentRefs[this.cacheComponentRefs.length - 1] : null;
@@ -164,7 +165,18 @@ export class InnerCache {
         this.cacheHistory.next(this.cacheComponentRefs);
     }
 
-    clearCache() {
+    clearCache(path?:string) {
+        if (path) {
+            this.cacheComponentRefsKeyMap.delete(path)
+            console.log(this.cacheComponentRefsKeyMap);
+            if (this.currentMatchPath === path) {
+                this.isCurrentKeepAlive = false
+                this.clearComponentRefs(true);
+            }
+            return
+        }
+        this.isCurrentKeepAlive = false
         this.clearComponentRefs(true);
+        this.cacheComponentRefsKeyMap.clear()
     }
 }

@@ -46,6 +46,6 @@ export const IceInnerRouterModule = (plugins: IceRouterPlugin[]
         );
         // Vue.component("ice-router-view",viewComponent);
         Vue.component("ice-router-view", iceCache(viewComponent));
-        Vue.component("ice-keepalive-router-view", iceCacheKeepAlive(viewComponent));
+        Vue.component("ice-keepalive-router-view", iceCacheKeepAlive(View, iceRouterPluginManager));
     }
 });

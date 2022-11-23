@@ -69,7 +69,8 @@ export default (iceRouterPlugins: IceRouterPlugin[], iceStore: any) => ({
         oKeepAlive: {
             type: Boolean,
             default: false
-        }
+        },
+        include: Array
     },
     render(createElement: any,
            { props, data, parent, children }: any
