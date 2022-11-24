@@ -50,7 +50,7 @@ export class IceInnerRouterPlugin implements IceInnerRouterPluginInterface, IceR
          * 无需任何处理
          */
         if (!this.subView) {
-            this.clear();
+            this.clear(matcher.path);
             return primaryVNode;
         }
         subInnerPath = this.innerUrl.getInnerPath()

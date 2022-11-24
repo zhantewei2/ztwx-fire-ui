@@ -67,10 +67,8 @@ export class InnerCache {
             const cache = this.cacheComponentRefsKeyMap.get(matcherPath);
             if (cache) {
                 this.cacheComponentRefs = [...cache];
-                this.cacheComponentRefsKeyMap.set(matcherPath, [...this.cacheComponentRefs]);
             }
         }
-        console.log(this.cacheComponentRefsKeyMap);
 
         const preComponentRef: CacheComponentRef | null = this.cacheComponentRefs.length ?
             this.cacheComponentRefs[this.cacheComponentRefs.length - 1] : null;
@@ -145,7 +143,6 @@ export class InnerCache {
 
     clearComponentRefs(all: boolean, start: number = 0) {
         let clearArr: CacheComponentRef[];
-
         if (all) {
             if (this.isCurrentKeepAlive) return;
             clearArr = this.cacheComponentRefs;
@@ -168,7 +165,6 @@ export class InnerCache {
     clearCache(path?:string) {
         if (path) {
             this.cacheComponentRefsKeyMap.delete(path)
-            console.log(this.cacheComponentRefsKeyMap);
             if (this.currentMatchPath === path) {
                 this.isCurrentKeepAlive = false
                 this.clearComponentRefs(true);

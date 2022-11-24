@@ -21,13 +21,10 @@ export const iceCacheKeepAlive = (View: any, iceRouterPluginManager: IceRouterPl
         watch: {
             include: {
                 handler(v: string[], ov: string[]) {
-                    console.log('v', v);
-                    console.log('ov', ov);
                     const set = new Set(v);
                     ov.forEach(i => {
                         if (!set.has(i)) {
                             plugins.forEach(p => {
-                                console.log(i);
                                 p.clear && p.clear(i);
                             });
                         }
