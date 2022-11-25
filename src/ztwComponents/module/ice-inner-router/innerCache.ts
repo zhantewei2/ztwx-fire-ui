@@ -17,6 +17,7 @@ export class InnerCache {
     cacheComponentRefsKeyMap = new Map<string, CacheComponentRef[]>();
     cacheHistory: Subject<CacheComponentRef[]> = new Subject();
     currentMatchPath: string;
+    prevMatchPath: string;
     isCurrentKeepAlive: boolean;
 
     get currentLevel(): number {
@@ -73,8 +74,12 @@ export class InnerCache {
         const preComponentRef: CacheComponentRef | null = this.cacheComponentRefs.length ?
             this.cacheComponentRefs[this.cacheComponentRefs.length - 1] : null;
 
-        if (preComponentRef && (preComponentRef.key === currentComponentRef.key)) {
-            currentComponentRef.iceMatcher = preComponentRef.iceMatcher;
+        if (preComponentRef && (preComponentRef.key === currentComponentRef.key) && !oKeepAlive) {
+            if (this.prevMatchPath === this.currentMatchPath) {
+                currentComponentRef.iceMatcher = preComponentRef.iceMatcher;
+            } else {
+                preComponentRef.iceMatcher = currentComponentRef.iceMatcher;
+            }
             let data: any = currentComponentRef.component.data;
             if (data) {
                 data.keepAlive = true;
@@ -127,7 +132,6 @@ export class InnerCache {
             /**
              * props 赋值
              */
-
             if (data) {
                 Object.assign(data.props || (data.props = {}), {
                     "iceParentData": instance.$data,
@@ -138,11 +142,13 @@ export class InnerCache {
                 );
             }
         }
+        this.prevMatchPath = this.currentMatchPath;
         return currentComponentRef.component;
     }
 
-    clearComponentRefs(all: boolean, start: number = 0) {
+    async clearComponentRefs(all: boolean, start: number = 0, arr?: CacheComponentRef[]) {
         let clearArr: CacheComponentRef[];
+        if (arr) clearArr = arr;
         if (all) {
             if (this.isCurrentKeepAlive) return;
             clearArr = this.cacheComponentRefs;
@@ -158,21 +164,22 @@ export class InnerCache {
             component.data && (component.data.keepAlive = false);
             componentRef.iceMatcher.instanceComponent && componentRef.iceMatcher.instanceComponent.$destroy();
         });
-        this.cacheComponentRefsKeyMap.set(this.currentMatchPath, [...this.cacheComponentRefs]);
+        if (!arr) this.cacheComponentRefsKeyMap.set(this.currentMatchPath, [...this.cacheComponentRefs]);
         this.cacheHistory.next(this.cacheComponentRefs);
     }
 
-    clearCache(path?:string) {
+    async clearCache(path?: string) {
         if (path) {
-            this.cacheComponentRefsKeyMap.delete(path)
-            if (this.currentMatchPath === path) {
-                this.isCurrentKeepAlive = false
-                this.clearComponentRefs(true);
-            }
-            return
+            const arr = this.cacheComponentRefsKeyMap.get(path);
+            if (arr) await this.clearComponentRefs(false, 0, arr);
+            this.cacheComponentRefsKeyMap.delete(path);
+            return;
         }
-        this.isCurrentKeepAlive = false
+        this.isCurrentKeepAlive = false;
         this.clearComponentRefs(true);
-        this.cacheComponentRefsKeyMap.clear()
+        this.cacheComponentRefsKeyMap.forEach((value, key, map) => {
+            this.clearComponentRefs(true, 0, value);
+        });
+        this.cacheComponentRefsKeyMap.clear();
     }
 }
