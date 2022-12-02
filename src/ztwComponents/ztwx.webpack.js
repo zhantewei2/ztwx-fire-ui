@@ -151,7 +151,6 @@ const webpackConfigBase={
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename:"[name].css",
-            chunkAll:true
         })
     ]
 };

@@ -22,7 +22,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {Component,Prop,Watch} from "vue-property-decorator";
-import {NavListItem} from "../../lib-fire/data.interface";
+import {NavListItem} from "@/ztwComponents";
 import {NavDataHandler} from "../../lib-fire/NavDataHandler";
 import IceNavItemComponent from "../ice-nav-item-component/ice-nav-item-component.vue";
 

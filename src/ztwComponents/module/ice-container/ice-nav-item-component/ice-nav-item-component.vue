@@ -37,7 +37,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {Component,Prop} from "vue-property-decorator";
-import {NavListItem} from "../../lib-fire/data.interface";
+import {NavListItem} from "@/ztwComponents";
 import {RippleDirection} from "../../../directive/ripple/ripple.directive";
 @Component({
     name:"ice-container-nav-item",

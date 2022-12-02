@@ -56,7 +56,7 @@
 import Vue from "vue";
 import {Component} from "vue-property-decorator";
 import IceLoginPageComponent
-    from "../../ztwComponents/modules/ice-login-page/ice-login-page-component/ice-login-page-component.vue";
+    from "../../ztwComponents/module/ice-login-page/ice-login-page-component/ice-login-page-component.vue";
 
 @Component({
     components: {IceLoginPageComponent}
